@@ -3,12 +3,15 @@ package application;
 import java.util.ArrayList;
 
 public class MentalHealth {
-    private ArrayList<String> medication, randomQuotes;
+    private ArrayList<Medicine> medication;
     private String jokeOfTheDay;
 
-    public MentalHealth(ArrayList<String> medication, ArrayList<String> randomQuotes, String jokeOfTheDay) {
-        this.medication = medication;
-        this.randomQuotes = randomQuotes;
-        this.jokeOfTheDay = jokeOfTheDay;
+    public MentalHealth() {
+       this.medication = new ArrayList<Medicine>(); 
     }
+
+    public ArrayList<Medicine> getMedication() {
+        return medication;
+    }
+
 }

@@ -11,12 +11,24 @@ public class Medicine {
 
     @Override
     public String toString() {
-        return "Take " + name + " " + doses + "x a day.";
+        return name + " | " + doses;
     }
-}
 
-class SalicylicAcid extends Medicine{
-    public SalicylicAcid(String brand, int doses) {
-        super(brand + ": " + "Salicylic Acid", doses);
+    /**
+     * Creates new class file
+     * @param input the data to be written
+     * @param fileName name of the file
+     */
+    public static void newMedicine(String medicine) {
+        String input = "package application.medicines;\r\n" + 
+                        "import application.Medicine;\r\n" + 
+                        "\r\n" + 
+                        "public class " + medicine.strip() + " extends Medicine {\r\n" + 
+                        "    public " + medicine.strip() + "(String brand, int doses) {\r\n" + 
+                        "        super(brand + \": \" + \"" + medicine + "\", doses);\r\n" + 
+                        "    }\r\n" + 
+                        "}";
+
+        Methods.writeFile(input, "medicines\\" + medicine.strip() + ".java");
     }
 }

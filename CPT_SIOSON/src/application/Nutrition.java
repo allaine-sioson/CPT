@@ -1,34 +1,50 @@
 package application;
 
-import java.io.*;
 import java.util.*;
 
 public class Nutrition {
     private ArrayList<String> allergies;
-    private String[] mealPlan;
+    private ArrayList<Medicine> medication;
+    private MealPlan mealPlan;
     private String diet, religion;
 
-    public Nutrition(ArrayList<String> allergies, String[] mealPlan, String diet, String religion) {
-        this.allergies = allergies;
-        this.mealPlan = mealPlan;
+    public Nutrition(String diet, String religion) {
+        this.allergies = new ArrayList<String>();
+        this.mealPlan = new MealPlan();
         this.diet = diet;
         this.religion = religion;
     }
 
-    public Nutrition(String diet) {
-        this.diet = diet;
-    }
-
     public void addAllergy(String allergy) {
-        allergies.add(allergy);
+        this.allergies.add(allergy);
     }
 
-    public void setMealPlan(String[] mealPlan) {
-        this.mealPlan = mealPlan;
+    public void addMedication(Medicine med) {
+        this.medication.add(med);
     }
 
     public void setDiet(String diet) {
         this.diet = diet;
+    }
+
+    public void setReligion(String religion) {
+        this.religion = religion;
+    }
+
+    public String getDiet() {
+        return this.diet;
+    }
+
+    public String getReligion() {
+        return this.religion;
+    }
+
+    public ArrayList<String> getAllergies() {
+        return this.allergies;
+    }
+
+    public MealPlan getMealPlan() {
+        return this.mealPlan;
     }
 
     // public void isOkayForMe(String food) {
