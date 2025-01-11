@@ -9,9 +9,9 @@ public class User {
     private HashMap<String,Object> hashmap;
     private JSONObject user;
 
-    private Skincare skincare;
-    private MentalHealth mentalHealth;
-    private Nutrition nutrition;
+    Skincare skincare;
+    MentalHealth mentalHealth;
+    Nutrition nutrition;
 
     public User(String name, String gender, String diet, String religion) {
         this.name = name;
@@ -36,6 +36,16 @@ public class User {
         this.gender = gender;
         updateUser();
     }
+
+    public void setDiet(String diet) {
+        this.nutrition.setDiet(diet);
+        updateUser();
+    }
+
+    public void setReligion(String religion) {
+        this.nutrition.setReligion(religion);
+        updateUser();
+    }
     
     @SuppressWarnings("unchecked")
     public void updateUser() {
@@ -55,7 +65,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User: " + name + "\nGender: " + this.gender + "\nDiet: " + this.nutrition.getDiet() + "\nReligion: " + this.nutrition.getReligion() + "\nMeal Plan: " + this.nutrition.getMealPlan() + "\nAllergies: " + this.nutrition.getAllergies() + "\nSkincare Medication: " + this.skincare.getMedication() + "\nSkin Concerns: " + this.skincare.getConcerns() + "\nSkincare Routine: " + this.skincare.getRoutine() + "\nMental Health Medication: " + this.mentalHealth.getMedication();
+        return "Name: " + name + "\nGender: " + this.gender + "\nDiet: " + this.nutrition.getDiet() + "\nReligion: " + this.nutrition.getReligion() + "\nMeal Plan: " + this.nutrition.getMealPlan() + "\nAllergies: " + this.nutrition.getAllergies() + "\nSkincare Medication: " + this.skincare.getMedication() + "\nSkin Concerns: " + this.skincare.getConcerns() + "\nSkincare Routine: " + this.skincare.getRoutine() + "\nMental Health Medication: " + this.mentalHealth.getMedication();
     }
 
     

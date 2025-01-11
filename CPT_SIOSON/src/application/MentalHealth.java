@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MentalHealth {
     private ArrayList<Medicine> medication;
-    private String jokeOfTheDay;
+    private String challenge;
 
     public MentalHealth() {
        this.medication = new ArrayList<Medicine>(); 
