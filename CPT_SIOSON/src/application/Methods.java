@@ -1,14 +1,49 @@
 package application;
 
+/**
+ * @author: Allaine
+ * date: 17/01/2025
+ * Methods file with methods that are to be used in other files
+ */
+
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
 public class Methods {
+    /**
+     * Get the current local time
+     * @return local time in hh:mm format
+     */
+    public static String getCurrentTime() {
+        // get the current local time
+        LocalTime time = LocalTime.now();
+
+        // format the time into hh:mm
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("hh:mm");
+        String formattedTime = time.format(formatTime);
+
+        // return the formatted time
+        return formattedTime;  
+    }
+
+    /**
+     * Get the current date
+     * @return the date today
+     */
+    public static LocalDate getCurrentDate() {
+        // get the current local time
+        LocalDate date = LocalDate.now();
+
+        // return the formatted time
+        return date;  
+    }
+
     public static String getStringData(String fileName, String dataNeeded) {
         // Parser for JSON files
         JSONParser jsonParser = new JSONParser();
@@ -98,6 +133,7 @@ public class Methods {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Abbey\\Desktop\\dev\\CPT_SIOSON\\src\\application\\" + fileName));
             writer.write(input);
+            writer.flush();
             writer.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");

@@ -15,9 +15,8 @@ public class Medicine {
     }
 
     /**
-     * Creates new class file
-     * @param input the data to be written
-     * @param fileName name of the file
+     * Creates new Medicine file
+     * @param medicine the Medicine to be added to the list of medicines
      */
     public static void newMedicine(String medicine) {
         String input = "package application.medicines;\r\n" + 
