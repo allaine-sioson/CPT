@@ -152,7 +152,7 @@ public class Main {
         // if the choice isn't 4
         if (!choice.equals("4")) {
             // display the "Sub Profile Menu" based on what choice the user made
-            choice = displaySubProfileMenu(input, choice, user, name, gender, diet, religion);
+            choice = displayProfileMenuResults(input, choice, user, name, gender, diet, religion);
         // if the choice also isn't "Q"
         } else if (!choice.equals("Q")) {
             // make the choice blank
@@ -174,7 +174,7 @@ public class Main {
      * @param religion Religion of User
      * @return the new choice the user made
      */
-    public static String displaySubProfileMenu(Scanner input, String choice, User user, String name, String gender, String diet, String religion) {
+    public static String displayProfileMenuResults(Scanner input, String choice, User user, String name, String gender, String diet, String religion) {
         // print divider
         System.out.println("\n· · ─ · · ─ · ·");
 
@@ -188,7 +188,6 @@ public class Main {
             // if user chose option 3, set user info to blank and quit program
             } else if (choice.equals("3")) {
                 user = new User("", "", "", "");
-                refreshAllData(name, gender, diet, religion);
                 System.out.println("\nYour user information has been successfully cleared!\nQuitting Program.");
                 choice = "Q";
                 break;
@@ -273,16 +272,6 @@ public class Main {
             // if the user chooses option 5 (cancel action)
             case "5":
                 break;
-        }
-        // refresh the data in the file
-        refreshAllData(name, gender, diet, religion);
-    }
-
-    public static void refreshAllData(String name, String gender, String diet, String religion) {
-        // refresh current data with data from JSON data file
-        name = Methods.getStringData("data.json", "Name");
-        gender = Methods.getStringData("data.json", "Gender");
-        diet = Methods.getStringData("data.json", "Diet");
-        religion = Methods.getStringData("data.json", "Religion");
+        } 
     }
 }
