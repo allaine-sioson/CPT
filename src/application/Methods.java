@@ -51,7 +51,7 @@ public class Methods {
         String data = "";
         // try catch to read in JSON file -> JSON Object
         try {
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("C:\\Users\\Abbey\\Desktop\\dev\\CPT_SIOSON\\src\\application\\" + fileName));
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\application\\" + fileName));
             // get the specific information
             data = (String) jsonObject.get(dataNeeded);
         } catch (FileNotFoundException e) {
@@ -71,7 +71,7 @@ public class Methods {
         ArrayList<String> data = new ArrayList<>();
         // try catch to read in JSON file -> JSON Object
         try {
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("C:\\Users\\Abbey\\Desktop\\dev\\CPT_SIOSON\\src\\application\\" + fileName));
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src\\application\\" + fileName));
             JSONArray jsonArray = (JSONArray) jsonObject.get(dataNeeded);
             // get the specific information
             if (jsonArray.size() > 0) {
@@ -113,7 +113,7 @@ public class Methods {
         String data = "";
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Abbey\\Desktop\\dev\\CPT_SIOSON\\src\\application\\" + fileName));
+            BufferedReader reader = new BufferedReader(new FileReader("src\\application\\" + fileName));
             data = reader.readLine();
             reader.close();
         } catch (IOException e) {
@@ -131,7 +131,7 @@ public class Methods {
      */
     public static void writeFile(String input, String fileName) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Abbey\\Desktop\\dev\\CPT_SIOSON\\src\\application\\" + fileName));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src\\application\\" + fileName));
             writer.write(input);
             writer.flush();
             writer.close();
