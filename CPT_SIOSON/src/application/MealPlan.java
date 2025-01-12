@@ -1,7 +1,5 @@
 package application;
 
-import java.util.Arrays;
-
 public class MealPlan {
     private String[] mealPlan;
     

@@ -4,5 +4,13 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Users\\Abbey\\Desktop\\json-simple-1.1.1.jar"
+    ],
+    "cSpell.words": [
+        "audiobook",
+        "Duolingo",
+        "journaling",
+        "Pescatarian",
+        "unfollow",
+        "Zumba"
     ]
 }

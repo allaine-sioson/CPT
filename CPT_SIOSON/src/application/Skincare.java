@@ -42,8 +42,8 @@ public class Skincare  {
     }
 
     public void getJSONSkincare() {
-        String[] medsJSON = Methods.getArrayData("data.json", "Skincare Medication");
-        for (String med : medsJSON) {
+        String[] medJSON = Methods.getArrayData("data.json", "Skincare Medication");
+        for (String med : medJSON) {
             String[] newMed = med.split(" | ");
             this.medication.add(new Medicine(newMed[0], Integer.valueOf(newMed[1])));
         }
@@ -58,12 +58,6 @@ public class Skincare  {
             this.routine.add(step);
             routineStep++;
         }
-
-        // String[] allergies = Methods.getStringData(fileName, dataNeeded).split(",");
-        // if (allergies.length == 0)
-        // for (String allergy : allergies) {
-        //     this.allergies.add(allergy);
-        // }
     }
     
 }
