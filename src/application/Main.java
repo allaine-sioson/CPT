@@ -55,7 +55,7 @@ public class Main {
                 choice = displayProfileMenu(input, user, name, gender, diet, religion);
             // if the user chose "2" (view Nutrition section)
             } else if (choice.equals("2")) {
-                System.out.println("hello! \n");
+                choice = displayNutritionMenu(input, user);
             // if the user chose "3" (view skincare section)
             } else if (choice.equals("3")) {
                 System.out.println("hello! \n");
@@ -166,7 +166,7 @@ public class Main {
     /**
      * Displays the profile menu text and allows the user to input a choice
      * @param input Scanner to allow user input
-     * @param choice The choice the user made
+     * @param choice The previous choice the user made
      * @param user The user's information
      * @param name Name of user
      * @param gender Gender of user
@@ -274,4 +274,164 @@ public class Main {
                 break;
         } 
     }
+
+    /**
+     * Displays the nutrition menu text and allows the user to input a choice
+     * @param input Scanner to allow user input
+     * @param user The user
+     * @return the choice the user made
+     */
+    public static String displayNutritionMenu(Scanner input, User user) {
+        // initialize a default choice
+        String choice = "";
+
+        do {
+            // display "Nutrition Menu" text
+            System.out.println("\nFeeling Hungry? :3\n");
+            System.out.println("· · ─ · · ─ · ·\n");
+            System.out.println("[1] Edit Meal Plan");
+            System.out.println("[2] Add Nutritional Medication");
+            System.out.println("[3] \"Is this food okay for me?\"");
+            System.out.println("[4] Go back\n");
+
+           // ask user to input choice
+           System.out.print("Input here: ");
+           // ensure that the user's choice is in uppercase
+           choice = input.nextLine().toUpperCase();
+        // repeat until the choice is one of the given options  
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4"));
+
+        // if the choice isn't 4
+        if (!choice.equals("4")) {
+            // display the "Sub Nutrition Menu" based on what choice the user made
+            choice = displayNutritionMenuResults(input, choice, user);
+        } else {
+            // make the choice blank
+            choice = "";
+        }
+
+        // return the user's choice
+        return choice;
+    }
+
+    /**
+     * Displays the nutrition menu text and allows the user to input a choice
+     * @param input Scanner to allow user input
+     * @param choice The previous choice the user made
+     * @param user The user's information
+     * @return the new choice the user made
+     */
+    public static String displayNutritionMenuResults(Scanner input, String choice, User user) {
+        // print divider
+        System.out.println("\n· · ─ · · ─ · ·");
+
+        do {
+            // if user chose option 1, edit meal plan
+            if (choice.equals("1")) {
+                changeMealPlan(input, user);
+            // if user chose option 2, allow user to add new med
+            } else if (choice.equals("2")) {
+                System.out.println("What is the name of your medication?: ");
+                String medName = input.nextLine();
+
+                System.out.println("\n· · ─ · · ─ · ·\n");
+
+                System.out.println("How many doses?:");
+                int doses = input.nextInt();
+
+                Medicine medication = new Medicine(medName, doses);
+                user.addMedication(medication);
+                break;
+            // if user chose option 3, check if food is okay for user
+            } else if (choice.equals("3")) {
+                System.out.println("What is the name of your food?: ");
+                String food = input.nextLine();
+
+                System.out.println("\n· · ─ · · ─ · ·\n");
+
+                boolean result = user.isOkayForMe(input, food);
+
+                System.out.println("\n· · ─ · · ─ · ·\n");
+
+                if (result == true) {
+                    System.out.println(food + "is okay!");
+                } else {
+                    System.out.println(food + "is NOT okay.");
+                }
+            }
+            // print divider
+            System.out.println("\n· · ─ · · ─ · ·");
+
+            // display profile menu text
+            choice = displayNutritionMenu(input, user);
+        // repeat until user's choice is one of the given options
+        } while (!choice.equals(""));
+
+        return choice;
+    }
+
+    /**
+     * Displays meal plan menu and allows the user to change their information
+     * @param input Scanner to allow user input
+     * @param user The user's information
+     */
+    public static void changeMealPlan(Scanner input, User user) {
+        String choice = "";
+        
+        do {
+            // display the "changing user info" menu
+            System.out.println("\nWhat would you like to do?\n");
+            System.out.println("[1] View Meal Plan");
+            System.out.println("[2] Edit Breakfast");
+            System.out.println("[3] Edit Lunch");
+            System.out.println("[4] Edit Dinner");
+            System.out.println("[5] Cancel\n");
+
+            // ask user to input choice
+            System.out.print("Input here: ");
+            // ensure that the user's choice is in uppercase
+            choice = input.nextLine().toUpperCase();
+
+        // repeat until the choice is one of the given options     
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("5"));
+
+        // divider
+        System.out.println("\n· · ─ · · ─ · ·");
+
+        // check which choice the user made
+        switch (choice) {
+            // if the user chooses option 1 (print meal plan)
+            case "1":
+                System.out.println(user.getMealPlan());
+                break;
+            // if the user chooses option 2 (edit breakfast)
+            case "2":
+                // ask user to input breakfast
+                System.out.print("Change breakfast: ");
+                String breakfast = input.nextLine();
+                // set the new breakfast  
+                user.setBreakfast(breakfast);
+                break;
+            // if the user chooses option 3 (edit lunch)
+            case "3":
+                // ask user to input lunch
+                System.out.print("Change lunch: ");
+                String lunch = input.nextLine();
+                // set the new lunch  
+                user.setLunch(lunch);
+                break;
+            // if the user chooses option 4 (change religion)
+            case "4":
+                // ask user to input dinner
+                System.out.print("Change dinner: ");
+                String dinner = input.nextLine();
+                // set the new dinner  
+                user.setDinner(dinner);
+                break;
+            // if the user chooses option 5 (cancel action)
+            case "5":
+                break;
+        } 
+    }
+    
 }

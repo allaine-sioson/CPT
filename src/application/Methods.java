@@ -33,15 +33,19 @@ public class Methods {
     }
 
     /**
-     * Get the current date
-     * @return the date today
+     * Get the current date (day only)
+     * @return the date today (day only)
      */
-    public static LocalDate getCurrentDate() {
+    public static String getCurrentDate() {
         // get the current local time
         LocalDate date = LocalDate.now();
 
+        // format the date into MM / dd
+        DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd");
+        String formattedDate = date.format(formatDate);
+
         // return the formatted time
-        return date;  
+        return formattedDate;  
     }
 
     public static String getStringData(String fileName, String dataNeeded) {
@@ -111,16 +115,19 @@ public class Methods {
      */
     public static String readFile(String fileName) {
         String data = "";
-
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src\\application\\" + fileName));
-            data = reader.readLine();
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("File not Found.");
-            e.printStackTrace();
-        }
+            String filePath = ("src\\application\\" + fileName);
+            File file = new File(filePath);
+            // parse file using scanner
+            Scanner scanner = new Scanner(file);
+            do {
+                data += scanner.nextLine();
+            } while ((scanner.hasNextLine()));
 
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.err.println(e);
+        }
         return data;
     }
 

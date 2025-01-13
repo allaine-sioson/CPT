@@ -19,12 +19,6 @@ public class MealPlan {
         this.mealPlan[2] = dinner;
     }
 
-    public void setMealPlan(String breakfast, String lunch, String dinner) {
-        setBreakfast(breakfast);
-        setLunch(lunch);
-        setDinner(dinner);
-    }
-
     @Override
     public String toString() {
         String printStatement = "[";

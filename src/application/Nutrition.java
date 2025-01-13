@@ -31,6 +31,18 @@ public class Nutrition {
         this.religion = religion;
     }
 
+    public void setBreakfast(String breakfast) {
+        setBreakfast(breakfast);
+    }
+
+    public void setLunch(String lunch) {
+        setLunch(lunch);
+    }
+
+    public void setDinner(String dinner) {
+        setDinner(dinner);
+    }
+
     public String getDiet() {
         return this.diet;
     }
@@ -47,21 +59,35 @@ public class Nutrition {
         return this.mealPlan;
     }
 
-    // public void isOkayForMe(String food) {
-    //     String dietData = Methods.readFile("data").toLowerCase();
-    //     String religionData = Methods.readFile(religion, "txt").toLowerCase();
+    public boolean isOkayForMe(Scanner input, String food) {
+        String dietData = Methods.readFile(diet.toLowerCase() + "Data.txt");
+        String religionData = Methods.readFile(religion.toLowerCase() + "Data.txt");
 
-    //     if (dietData.contains(food) || religionData.contains(food)) {
-    //         if (dietData.contains(food)) {
-    //             System.out.println(food + "is not allowed in a " + diet + " diet.");
-    //         }
+        String[] foodTypes = {"Meats (beef, pork, poultry etc)", "Seafood", "Animal by-products", "Dairy", "Gluten", "Nuts", "Soy"};
+        ArrayList<String> foodData = new ArrayList<>();
+        String choice;
+        boolean result = true;
 
-    //         if (religionData.contains(food)) {
-    //             System.out.println(food +" is not allowed in " + religion + ".");
-    //         }
-    //     } else {
-    //         System.out.println(food + "is allowed in both " + religion + " and " + diet + " diet.");
-    //     }
-    // }
+        for (String foodType : foodTypes) {
+            do {
+                System.out.println("Would " + food + "be considered a / contain \"" + foodType + "\" ?");
+                System.out.print("Input Y/N: ");
+                choice = input.nextLine().toUpperCase();
+            } while (!choice.equals("Y") && !choice.equals("N"));
+    
+            if (choice.equals("Y")) {
+                foodData.add(foodType);
+            }
+        }
+
+        for (String foodInfo : foodData) {
+            if (dietData.contains(foodInfo) || religionData.contains(foodInfo)) {
+                result = false;
+                break;
+            }
+        }
+
+        return result;
+    }
     
 }

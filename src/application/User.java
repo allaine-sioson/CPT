@@ -47,6 +47,18 @@ public class User {
         updateUser();
     }
 
+    public void setBreakfast(String breakfast) {
+        nutrition.setBreakfast(breakfast);
+    }
+
+    public void setLunch(String lunch) {
+        nutrition.setLunch(lunch);
+    }
+
+    public void setDinner(String dinner) {
+        nutrition.setDinner(dinner);
+    }
+
     public String getName() {
         return name;
     }
@@ -61,6 +73,22 @@ public class User {
 
     public String getReligion() {
         return this.nutrition.getReligion();
+    }
+
+    public MealPlan getMealPlan() {
+        return this.nutrition.getMealPlan();
+    }
+
+    public void addMedication(Medicine medication) {
+        nutrition.addMedication(medication);
+    }
+
+    public boolean isOkayForMe(Scanner input, String food) {
+        return nutrition.isOkayForMe(input, food);
+    } 
+
+    public String getDailyChallenge() {
+        return this.mentalHealth.getDailyChallenge();
     }
     
     @SuppressWarnings("unchecked")
