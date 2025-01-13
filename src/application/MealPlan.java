@@ -1,42 +1,29 @@
 package application;
 
 public class MealPlan {
-    private String[] mealPlan;
+    private String breakfast, lunch, dinner;
     
     public MealPlan() {
-        this.mealPlan = new String[3];
+        this.breakfast = "";
+        this.lunch = "";
+        this.dinner = "";
     }
 
     public void setBreakfast(String breakfast) {
-        this.mealPlan[0] = breakfast;
+        this.breakfast = breakfast;
     }
 
     public void setLunch(String lunch) {
-        this.mealPlan[1] = lunch;
+        this.lunch = lunch;
     }
 
     public void setDinner(String dinner) {
-        this.mealPlan[2] = dinner;
+        this.dinner = dinner;
     }
 
     @Override
     public String toString() {
-        String printStatement = "[";
-        for (int i = 0; i < mealPlan.length; i++) {
-            String food = "";
-            if (mealPlan[i] != null) {
-                food = mealPlan[i];
-            }
-
-            if (i == 0) {
-                printStatement = printStatement + "\"breakfast: " + food + "\", ";
-            } else if (i == 1) {
-                printStatement = printStatement + "\"lunch: " + food + "\", ";
-            } else {
-                printStatement = printStatement + "\"dinner: " + food + "\"]";
-            }
-        }
-        return printStatement;
+        return "[\"breakfast: " + breakfast + "\", \"lunch: " + lunch + "\", \"dinner: " + dinner + "\"]";
     }
 
     

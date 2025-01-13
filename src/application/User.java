@@ -49,14 +49,17 @@ public class User {
 
     public void setBreakfast(String breakfast) {
         nutrition.setBreakfast(breakfast);
+        updateUser();
     }
 
     public void setLunch(String lunch) {
         nutrition.setLunch(lunch);
+        updateUser();
     }
 
     public void setDinner(String dinner) {
         nutrition.setDinner(dinner);
+        updateUser();
     }
 
     public String getName() {
@@ -81,6 +84,7 @@ public class User {
 
     public void addMedication(Medicine medication) {
         nutrition.addMedication(medication);
+        updateUser();
     }
 
     public boolean isOkayForMe(Scanner input, String food) {
@@ -99,6 +103,7 @@ public class User {
         user.put("Religion", this.nutrition.getReligion());
         user.put("Meal Plan", this.nutrition.getMealPlan());
         user.put("Allergies", this.nutrition.getAllergies());
+        user.put("Nutrition Medication", this.nutrition.getMedication());
         user.put("Skincare Medication", this.skincare.getMedication());
         user.put("Skin Concerns", this.skincare.getConcerns());
         user.put("Skincare Routine", this.skincare.getRoutine());

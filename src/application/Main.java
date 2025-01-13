@@ -1,6 +1,7 @@
 package application;
 
 import java.util.*;
+import application.medicines.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -331,12 +332,12 @@ public class Main {
                 changeMealPlan(input, user);
             // if user chose option 2, allow user to add new med
             } else if (choice.equals("2")) {
-                System.out.println("What is the name of your medication?: ");
+                System.out.print("What is the name of your medication?: ");
                 String medName = input.nextLine();
 
                 System.out.println("\n· · ─ · · ─ · ·\n");
 
-                System.out.println("How many doses?:");
+                System.out.print("How many doses?: ");
                 int doses = input.nextInt();
 
                 Medicine medication = new Medicine(medName, doses);
@@ -344,7 +345,7 @@ public class Main {
                 break;
             // if user chose option 3, check if food is okay for user
             } else if (choice.equals("3")) {
-                System.out.println("What is the name of your food?: ");
+                System.out.print("What is the name of your food?: ");
                 String food = input.nextLine();
 
                 System.out.println("\n· · ─ · · ─ · ·\n");
@@ -354,9 +355,9 @@ public class Main {
                 System.out.println("\n· · ─ · · ─ · ·\n");
 
                 if (result == true) {
-                    System.out.println(food + "is okay!");
+                    System.out.println(food + " is okay for your diet!");
                 } else {
-                    System.out.println(food + "is NOT okay.");
+                    System.out.println(food + " is NOT okay for your diet.");
                 }
             }
             // print divider

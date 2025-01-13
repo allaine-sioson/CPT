@@ -7,11 +7,12 @@ public class Medicine {
     public Medicine(String name, int doses) {
         this.name = name;
         this.doses = doses;
+        newMedicine(name);
     }
 
     @Override
     public String toString() {
-        return name + " | " + doses;
+        return "\"" + name + " | " + doses + "x\"";
     }
 
     /**
@@ -22,12 +23,12 @@ public class Medicine {
         String input = "package application.medicines;\r\n" + 
                         "import application.Medicine;\r\n" + 
                         "\r\n" + 
-                        "public class " + medicine.strip() + " extends Medicine {\r\n" + 
-                        "    public " + medicine.strip() + "(String brand, int doses) {\r\n" + 
+                        "public class " + medicine.replace(" ","") + " extends Medicine {\r\n" + 
+                        "    public " + medicine.replace(" ","") + "(String brand, int doses) {\r\n" + 
                         "        super(brand + \": \" + \"" + medicine + "\", doses);\r\n" + 
                         "    }\r\n" + 
                         "}";
 
-        Methods.writeFile(input, "medicines\\" + medicine.strip() + ".java");
+        Methods.writeFile(input, "medicines\\" + medicine.replace(" ","") + ".java");
     }
 }

@@ -13,6 +13,9 @@ public class Nutrition {
         this.mealPlan = new MealPlan();
         this.diet = diet;
         this.religion = religion;
+        this.medication = new ArrayList<>();
+
+        getJSONNutrition();
     }
 
     public void addAllergy(String allergy) {
@@ -32,15 +35,15 @@ public class Nutrition {
     }
 
     public void setBreakfast(String breakfast) {
-        setBreakfast(breakfast);
+        this.mealPlan.setBreakfast(breakfast);
     }
 
     public void setLunch(String lunch) {
-        setLunch(lunch);
+        this.mealPlan.setLunch(lunch);
     }
 
     public void setDinner(String dinner) {
-        setDinner(dinner);
+        this.mealPlan.setDinner(dinner);
     }
 
     public String getDiet() {
@@ -59,8 +62,12 @@ public class Nutrition {
         return this.mealPlan;
     }
 
+    public ArrayList<Medicine> getMedication() {
+        return this.medication;
+    }
+
     public boolean isOkayForMe(Scanner input, String food) {
-        String dietData = Methods.readFile(diet.toLowerCase() + "Data.txt");
+        String dietData = Methods.readFile("diets\\"+ diet.toLowerCase() + "Data.txt");
         String religionData = Methods.readFile(religion.toLowerCase() + "Data.txt");
 
         String[] foodTypes = {"Meats (beef, pork, poultry etc)", "Seafood", "Animal by-products", "Dairy", "Gluten", "Nuts", "Soy"};
@@ -70,7 +77,7 @@ public class Nutrition {
 
         for (String foodType : foodTypes) {
             do {
-                System.out.println("Would " + food + "be considered a / contain \"" + foodType + "\" ?");
+                System.out.println("Would " + food + " be considered a / contain \"" + foodType + "\" ?");
                 System.out.print("Input Y/N: ");
                 choice = input.nextLine().toUpperCase();
             } while (!choice.equals("Y") && !choice.equals("N"));
@@ -88,6 +95,24 @@ public class Nutrition {
         }
 
         return result;
+    }
+
+    public void getJSONNutrition() {
+        String[] medJSON = Methods.getArrayData("data.json", "Nutrition Medication");
+        for (String med : medJSON) {
+            String[] newMed = med.split("|");
+            this.medication.add(new Medicine(newMed[0], Integer.valueOf(newMed[1])));
+        }
+
+        String[] allergiesJSON = Methods.getArrayData("data.json","Allergies");
+        for (String allergy : allergiesJSON) {
+            this.allergies.add(allergy);
+        }
+
+        String[] mealPlanJSON = Methods.getArrayData("data.json","Meal Plan");
+        setBreakfast(mealPlanJSON[0].replace("breakfast: ", ""));
+        setLunch(mealPlanJSON[1].replace("lunch: ", ""));
+        setDinner(mealPlanJSON[2].replace("dinner: ", ""));
     }
     
 }
