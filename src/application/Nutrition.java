@@ -67,10 +67,22 @@ public class Nutrition {
     }
 
     public boolean isOkayForMe(Scanner input, String food) {
-        String dietData = Methods.readFile("diets\\"+ diet.toLowerCase() + "Data.txt");
-        String religionData = Methods.readFile(religion.toLowerCase() + "Data.txt");
+        String dietData;
+        String religionData;
 
-        String[] foodTypes = {"Meats (beef, pork, poultry etc)", "Seafood", "Animal by-products", "Dairy", "Gluten", "Nuts", "Soy"};
+        if (!diet.toLowerCase().equals("normal")) {
+            dietData = Methods.readFile("diets\\"+ diet.toLowerCase() + "Data.txt");
+        } else {
+            dietData = "";
+        }
+
+        if (!diet.toLowerCase().equals("christian")) {
+            religionData = Methods.readFile(religion.toLowerCase() + "Data.txt");
+        } else {
+            religionData = "";
+        }
+
+        String[] foodTypes = {"Beef", "Pork", "Poultry", "Seafood", "Animal by-products", "Dairy", "Gluten", "Nuts", "Soy"};
         ArrayList<String> foodData = new ArrayList<>();
         String choice;
         boolean result = true;
