@@ -16,7 +16,7 @@ public class Queue<T> {
      * Default constructor for Queue
      */
     public Queue() {
-        this.queue = new LinkedList<>();
+        this.queue = new LinkedList<T>();
     }
 
     /**
@@ -55,6 +55,14 @@ public class Queue<T> {
             System.out.println(e);
         }
         return firstElement;
+    }
+    
+    /**
+     * Checks if queue is empty
+     * @return true when list is empty, false otherwise
+     */
+    public boolean isEmpty() {
+        return this.queue.isEmpty();
     }
 
     /**

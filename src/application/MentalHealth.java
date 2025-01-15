@@ -1,14 +1,16 @@
 package application;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class MentalHealth {
     private ArrayList<Medicine> medication;
     private String dailyChallenge;
+    private Queue<String> previousChallenges;
 
     public MentalHealth() {
        this.medication = new ArrayList<Medicine>(); 
        this.dailyChallenge = findDailyChallenge();
+       this.previousChallenges = new Queue<>();
     }
 
     public ArrayList<Medicine> getMedication() {
@@ -19,8 +21,44 @@ public class MentalHealth {
         return this.dailyChallenge;
     }
 
+    public Queue<String> getPreviousChallenges() {
+        return this.previousChallenges;
+    }
+
+    public void viewPreviousChallenges(Scanner input) {
+        String[] challenges = Methods.readFile("challenges.txt").split("\\.");
+        for (int i = 0; i < getDayOfYear()-2; i++) {
+            this.previousChallenges.enqueue(challenges[i]);
+        }
+
+        String choice = "";
+        String challengesHead = this.previousChallenges.dequeue();
+
+        do {
+            if (this.previousChallenges.isEmpty()) {
+                for (int i = 0; i < getDayOfYear()-2; i++) {
+                    this.previousChallenges.enqueue(challenges[i]);
+                }
+            }
+            System.out.println(challengesHead);
+            System.out.println("\nCheck previous?\n");
+            System.out.print("Y/N: ");
+            choice = input.nextLine().toUpperCase();
+
+            if (choice.equals("Y")) {
+                challengesHead = this.previousChallenges.dequeue();
+            }
+        } while (!choice.equals("N"));
+    }
+
     public String findDailyChallenge() {
         String[] challenges = Methods.readFile("challenges.txt").split("\\.");
+        int dayOfYear = getDayOfYear();
+
+        return challenges[dayOfYear-1];
+    }
+
+    public int getDayOfYear() {
         String[] currentDate = Methods.getCurrentDate().split("/");
         int days = 0;
 
@@ -70,7 +108,7 @@ public class MentalHealth {
 
         int dayOfYear = days + currentDay;
 
-        return challenges[dayOfYear-1];
+        return dayOfYear;
     }
 
 }

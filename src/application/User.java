@@ -62,6 +62,10 @@ public class User {
         updateUser();
     }
 
+    public void viewPreviousChallenges(Scanner input) {
+        this.mentalHealth.viewPreviousChallenges(input);
+    }
+
     public String getName() {
         return name;
     }

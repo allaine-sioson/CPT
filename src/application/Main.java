@@ -1,7 +1,6 @@
 package application;
 
 import java.util.*;
-import application.medicines.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,6 +40,7 @@ public class Main {
             // create the user with the given data from the JSON data file
             user = new User(name, gender, diet, religion);
         }
+
         // divider
         System.out.println("\n· · ─ · · ─ · ·\n");
         // greeting

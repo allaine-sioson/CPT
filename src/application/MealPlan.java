@@ -25,6 +25,4 @@ public class MealPlan {
     public String toString() {
         return "[\"breakfast: " + breakfast + "\", \"lunch: " + lunch + "\", \"dinner: " + dinner + "\"]";
     }
-
-    
 }
