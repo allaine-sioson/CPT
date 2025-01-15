@@ -1,6 +1,13 @@
 package application;
 
+/**
+ * author: Allaine
+ * date: 15/01/2025
+ * Main File
+ */
+
 import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {

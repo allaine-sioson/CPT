@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * author: Allaine
+ * date: 15/01/2025
+ * Medicine datatype
+ */
+
 public class Medicine {
     private String name;
     private int doses;

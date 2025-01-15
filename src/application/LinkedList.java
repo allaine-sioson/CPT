@@ -1,12 +1,12 @@
 package application;
 
-import javax.naming.OperationNotSupportedException;
-
 /**
- * @author Allaine
- * @date 12/17/2024
- * A representation of a linked list
+ * author: Allaine
+ * date: 15/01/2025
+ * LinkedList datatype
  */
+
+import javax.naming.OperationNotSupportedException;
 
 public class LinkedList <T> {
     // instance vars

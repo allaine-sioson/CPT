@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * author: Allaine
+ * date: 15/01/2025
+ * Meal plan datatype
+ */
+
 public class MealPlan {
     private String breakfast, lunch, dinner;
     

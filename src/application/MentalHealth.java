@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * author: Allaine
+ * date: 15/01/2025
+ * Mental datatype
+ */
+
 import java.util.*;
 
 public class MentalHealth {

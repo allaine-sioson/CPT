@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * author: Allaine
+ * date: 15/01/2025
+ * Nutrition datatype
+ */
+
 import java.util.*;
 
 public class Nutrition {
