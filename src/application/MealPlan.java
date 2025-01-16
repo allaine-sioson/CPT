@@ -15,6 +15,12 @@ public class MealPlan {
         this.dinner = "";
     }
 
+    public void resetMealPlan() {
+        this.breakfast = "";
+        this.lunch = "";
+        this.dinner = "";
+    }
+
     public void setBreakfast(String breakfast) {
         this.breakfast = breakfast;
     }

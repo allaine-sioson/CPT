@@ -104,6 +104,17 @@ public class User {
     public String getDailyChallenge() {
         return this.mentalHealth.getDailyChallenge();
     }
+
+    public void resetNutrition() {
+        this.nutrition.setBreakfast("");
+        this.nutrition.setLunch("");
+        this.nutrition.setDinner("");
+
+        this.nutrition.resetAllergies();
+        this.nutrition.resetMedication();
+
+        updateUser();
+    }
     
     @SuppressWarnings("unchecked")
     public void updateUser() {

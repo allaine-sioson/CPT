@@ -8,7 +8,6 @@ package application;
 
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
         // Scanner for user input
@@ -52,6 +51,7 @@ public class Main {
         System.out.println("\n· · ─ · · ─ · ·\n");
         // greeting
         System.out.println("Hello " + name + "! :3");
+        System.out.println("Daily Challenge: " + user.getDailyChallenge());
         // display the main menu
         String choice = displayMainMenu(input, name, gender, diet, religion);
         
@@ -196,6 +196,7 @@ public class Main {
             // if user chose option 3, set user info to blank and quit program
             } else if (choice.equals("3")) {
                 user = new User("", "", "", "");
+                user.resetNutrition();
                 System.out.println("\nYour user information has been successfully cleared!\nQuitting Program.");
                 choice = "Q";
                 break;

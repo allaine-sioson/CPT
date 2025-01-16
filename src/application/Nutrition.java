@@ -24,6 +24,18 @@ public class Nutrition {
         getJSONNutrition();
     }
 
+    public void resetAllergies() {
+        this.allergies.clear();
+    }
+
+    public void resetMedication() {
+        this.medication.clear();
+    }
+
+    public void resetMealPlan() {
+        this.mealPlan.resetMealPlan();
+    }
+
     public void addAllergy(String allergy) {
         this.allergies.add(allergy);
     }
@@ -77,18 +89,18 @@ public class Nutrition {
         String religionData;
 
         if (!diet.toLowerCase().equals("normal")) {
-            dietData = Methods.readFile("diets\\"+ diet.toLowerCase() + "Data.txt");
+            dietData = Methods.readFile("diets\\"+ diet.toLowerCase() + "Data.txt").toLowerCase();
         } else {
             dietData = "";
         }
 
-        if (!diet.toLowerCase().equals("christian")) {
-            religionData = Methods.readFile(religion.toLowerCase() + "Data.txt");
+        if (!religion.toLowerCase().equals("christian")) {
+            religionData = Methods.readFile(religion.toLowerCase() + "Data.txt").toLowerCase();
         } else {
             religionData = "";
         }
 
-        String[] foodTypes = {"Beef", "Pork", "Poultry", "Seafood", "Animal by-products", "Dairy", "Gluten", "Nuts", "Soy"};
+        String[] foodTypes = {"beef", "pork", "poultry", "seafood", "animal by-products", "dairy", "gluten", "nuts", "soy"};
         ArrayList<String> foodData = new ArrayList<>();
         String choice;
         boolean result = true;
