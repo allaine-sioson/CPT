@@ -90,18 +90,30 @@ public class Nutrition {
         String religionData;
 
         if (!diet.toLowerCase().equals("normal")) {
-            dietData = Methods.readFile("diets\\"+ diet.toLowerCase() + "Data.txt").toLowerCase();
+            dietData = Methods.readFile("assets\\diets\\"+ diet.toLowerCase() + "Data.txt").toLowerCase();
         } else {
             dietData = "";
         }
 
         if (!religion.toLowerCase().equals("christian")) {
-            religionData = Methods.readFile("religions\\" + religion.toLowerCase() + "Data.txt").toLowerCase();
+            religionData = Methods.readFile("assets\\religions\\" + religion.toLowerCase() + "Data.txt").toLowerCase();
         } else {
             religionData = "";
         }
 
-        String[] foodTypes = {"beef", "pork", "poultry", "seafood", "animal by-products", "dairy", "gluten", "nuts", "soy"};
+        ArrayList<String> foodTypes = new ArrayList<>();
+        foodTypes.add("beef");
+        foodTypes.add("pork");
+        foodTypes.add("poultry");
+        foodTypes.add("seafood");
+        foodTypes.add("animal by-products");
+        foodTypes.add("dairy");
+        foodTypes.add("gluten");
+        
+        for (String allergy : this.allergies) {
+            foodTypes.add(allergy);
+        }
+
         ArrayList<String> foodData = new ArrayList<>();
         String choice;
         boolean result = true;

@@ -193,7 +193,7 @@ public class Main {
             // if user chose option 2, display change user info. menu
             } else if (choice.equals("2")) {
                 changeUserInfo(input, user, name, gender, diet, religion);
-            // if user chose option 3, set user info to blank and quit program
+            // if user chose option 3, reset all user info and quit program
             } else if (choice.equals("3")) {
                 user = new User("", "", "", "");
                 user.resetNutrition();

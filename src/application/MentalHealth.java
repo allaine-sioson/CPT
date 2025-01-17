@@ -56,7 +56,7 @@ public class MentalHealth {
     }
 
     public void viewPreviousChallenges(Scanner input) {
-        String[] challenges = Methods.readFile("challenges.txt").split("\\.");
+        String[] challenges = Methods.readFile("assets\\challenges.txt").split("\\.");
         for (int i = 0; i < getDayOfYear(); i++) {
             this.previousChallenges.enqueue(challenges[i]);
         }
@@ -86,7 +86,7 @@ public class MentalHealth {
     }
 
     public String findDailyChallenge() {
-        String[] challenges = Methods.readFile("challenges.txt").split("\\.");
+        String[] challenges = Methods.readFile("assets\\challenges.txt").split("\\.");
         int dayOfYear = getDayOfYear();
 
         return challenges[dayOfYear-1];
