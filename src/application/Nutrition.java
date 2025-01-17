@@ -130,8 +130,8 @@ public class Nutrition {
     public void getJSONNutrition() {
         String[] medJSON = Methods.getArrayData("data.json", "Nutrition Medication");
         for (String med : medJSON) {
-            String[] newMed = med.split("|");
-            this.medication.add(new Medicine(newMed[0], Integer.valueOf(newMed[1])));
+            String[] newMed = med.split("\\|");
+            this.medication.add(new Medicine(newMed[0].trim(), Integer.valueOf(newMed[1].replace("x", "").trim())));
         }
 
         String[] allergiesJSON = Methods.getArrayData("data.json","Allergies");

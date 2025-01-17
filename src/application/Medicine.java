@@ -16,11 +16,6 @@ public class Medicine {
         newMedicine(name);
     }
 
-    @Override
-    public String toString() {
-        return "\"" + name + " | " + doses + "x\"";
-    }
-
     /**
      * Creates new Medicine file
      * @param medicine the Medicine to be added to the list of medicines
@@ -36,5 +31,10 @@ public class Medicine {
                         "}";
 
         Methods.writeFile(input, "medicines\\" + medicine.replace(" ","") + ".java");
+    }
+
+    @Override
+    public String toString() {
+        return "\"" + name + " | " + doses + "x\"";
     }
 }

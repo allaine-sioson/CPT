@@ -31,7 +31,7 @@ public class Skincare  {
     }
 
     public void addStepToRoutine(String step) {
-        this.concerns.add(routineStep + ". " + step);
+        this.routine.add(routineStep + ". " + step);
         routineStep++;
     }
 
@@ -47,11 +47,23 @@ public class Skincare  {
         return routine;
     }
 
+    public void resetRoutine() {
+        routine.clear();
+    }
+
+    public void resetConcerns() {
+        concerns.clear();
+    }
+
+    public void resetMedication() {
+        medication.clear();
+    }
+
     public void getJSONSkincare() {
         String[] medJSON = Methods.getArrayData("data.json", "Skincare Medication");
         for (String med : medJSON) {
-            String[] newMed = med.split(" | ");
-            this.medication.add(new Medicine(newMed[0], Integer.valueOf(newMed[1])));
+            String[] newMed = med.split("\\|");
+            this.medication.add(new Medicine(newMed[0].trim(), Integer.valueOf(newMed[1].replace("x", "").trim())));
         }
 
         String[] concernsJSON = Methods.getArrayData("data.json","Skin Concerns");

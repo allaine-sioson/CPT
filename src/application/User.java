@@ -92,8 +92,31 @@ public class User {
         return this.nutrition.getMealPlan();
     }
 
-    public void addMedication(Medicine medication) {
+    public ArrayList<String> getSkincareRoutine() {
+        return this.skincare.getRoutine();
+    }
+
+    public ArrayList<String> getSkinConcerns() {
+        return this.skincare.getConcerns();
+    }
+
+    public void addToSkincareRoutine(String step) {
+        this.skincare.addStepToRoutine(step);
+        updateUser();
+    }
+
+    public void addToSkinConcerns(String concern) {
+        this.skincare.addConcern(concern);
+        updateUser();
+    }
+
+    public void addNutritionMedication(Medicine medication) {
         nutrition.addMedication(medication);
+        updateUser();
+    }
+
+    public void addSkincareMedication(Medicine medication) {
+        skincare.addMedication(medication);
         updateUser();
     }
 
@@ -112,6 +135,23 @@ public class User {
 
         this.nutrition.resetAllergies();
         this.nutrition.resetMedication();
+        updateUser();
+    }
+
+    public void resetSkincareRoutine() {
+        this.skincare.resetRoutine();
+        updateUser();
+    }
+
+    public void resetSkinConcerns() {
+        this.skincare.resetConcerns();
+        updateUser();
+    }
+
+    public void resetSkincare() {
+        resetSkinConcerns();
+        resetSkincareRoutine();
+        this.skincare.resetMedication();
 
         updateUser();
     }
