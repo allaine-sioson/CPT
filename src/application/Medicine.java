@@ -1,6 +1,8 @@
 package application;
 
-import java.lang.reflect.Constructor;
+import java.util.Scanner;
+
+import application.medicines.*;
 
 /**
  * author: Allaine
@@ -17,37 +19,43 @@ public class Medicine {
         this.doses = doses;
     }
 
-    public static Medicine getSpecificMedicine(String name, String brand, int doses) {
-        try {
-            Class<?> clazz = Class.forName("application.medicines." + name.replace(" ",""));
-            Constructor<?> ctor = clazz.getConstructor(String.class, int.class);
-            return (Medicine) ctor.newInstance(brand, doses);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    public static Medicine newMedicine(Scanner input) {
+        String medName = "";
+        String typeOfMed = "";
+        int doses = 0;
+    
+        do {
+            System.out.print("What is the name of your medication?: ");
+            medName = input.nextLine();
+        } while (medName.equals(""));
 
-    /**
-     * Creates new Medicine file
-     * @param medicine the Medicine to be added to the list of medicines
-     */
-    public static void newMedicine(String medicine) {
-        String medName = medicine.replace(" ","");
-        if (medName.contains(":")) {
-            String[] splitName = medName.split("\\:");
-            medName = splitName[1];
-        }
-        String input = "package application.medicines;\r\n" + 
-                        "import application.Medicine;\r\n" + 
-                        "\r\n" + 
-                        "public class " + medName + " extends Medicine {\r\n" + 
-                        "    public " + medName + "(String brand, int doses) {\r\n" + 
-                        "        super(brand + \": \" + \"" + medicine + "\", doses);\r\n" + 
-                        "    }\r\n" + 
-                        "}";
+        System.out.println("\n· · ─ · · ─ · ·\n");
 
-        Methods.writeFile(input, "medicines\\" + medName + ".java");
+        do {
+            System.out.print("How many doses?: ");
+            doses = input.nextInt();
+        } while (doses <= 0);
+
+        System.out.println("\n· · ─ · · ─ · ·\n");
+        input.nextLine();
+
+        do {
+            System.out.print("Is it a cream, pill, serum or syrup?: ");
+            typeOfMed = input.nextLine();
+        } while (!typeOfMed.equalsIgnoreCase("cream") && !typeOfMed.equalsIgnoreCase("pill") && !typeOfMed.equalsIgnoreCase("serum") && !typeOfMed.equalsIgnoreCase("syrup"));
+
+        switch (typeOfMed.toLowerCase()) {
+            case "cream":
+                return new Cream(medName, doses);
+            case "pill":
+                return new Pill(medName, doses);
+            case "serum":
+                return new Serum(medName, doses);
+            case "syrup":
+                return new Syrup(medName, doses);
+            default:
+                return null;
+        }
     }
 
     @Override

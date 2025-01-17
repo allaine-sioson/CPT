@@ -84,6 +84,7 @@ public class Nutrition {
         return this.medication;
     }
 
+    //TODO: fix method to also check allergies
     public boolean isOkayForMe(Scanner input, String food) {
         String dietData;
         String religionData;
@@ -95,7 +96,7 @@ public class Nutrition {
         }
 
         if (!religion.toLowerCase().equals("christian")) {
-            religionData = Methods.readFile(religion.toLowerCase() + "Data.txt").toLowerCase();
+            religionData = Methods.readFile("religions\\" + religion.toLowerCase() + "Data.txt").toLowerCase();
         } else {
             religionData = "";
         }
@@ -131,10 +132,9 @@ public class Nutrition {
         String[] medJSON = Methods.getArrayData("data.json", "Nutrition Medication");
         for (String med : medJSON) {
             String[] newMed = med.split("\\|");
-            String[] medName = newMed[0].split(":");
             int doses = Integer.parseInt(newMed[1].replace("x", "").trim());
 
-            this.medication.add(Medicine.getSpecificMedicine(medName[1], medName[0], doses));
+            this.medication.add(new Medicine(newMed[0].trim(), doses));
         }
 
         String[] allergiesJSON = Methods.getArrayData("data.json","Allergies");

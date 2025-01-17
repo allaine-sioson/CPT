@@ -63,10 +63,9 @@ public class Skincare  {
         String[] medJSON = Methods.getArrayData("data.json", "Skincare Medication");
         for (String med : medJSON) {
             String[] newMed = med.split("\\|");
-            String[] medName = newMed[0].split(":");
             int doses = Integer.parseInt(newMed[1].replace("x", "").trim());
 
-            this.medication.add(Medicine.getSpecificMedicine(medName[1], medName[0], doses));
+            this.medication.add(new Medicine(newMed[0].trim(), doses));
         }
 
         String[] concernsJSON = Methods.getArrayData("data.json","Skin Concerns");

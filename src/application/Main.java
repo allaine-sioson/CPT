@@ -303,17 +303,18 @@ public class Main {
             System.out.println("[1] Edit Meal Plan");
             System.out.println("[2] Add Nutritional Medication");
             System.out.println("[3] \"Is this food okay for me?\"");
-            System.out.println("[4] Go back\n");
+            System.out.println("[4] Allergies");
+            System.out.println("[5] Go back\n");
 
            // ask user to input choice
            System.out.print("Input here: ");
            // ensure that the user's choice is in uppercase
            choice = input.nextLine().toUpperCase();
         // repeat until the choice is one of the given options  
-        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4"));
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("5"));
 
-        // if the choice isn't 4
-        if (!choice.equals("4")) {
+        // if the choice isn't 5
+        if (!choice.equals("5")) {
             // display the "Sub Nutrition Menu" based on what choice the user made
             choice = displayNutritionMenuResults(input, choice, user);
         } else {
@@ -342,34 +343,7 @@ public class Main {
                 editMealPlan(input, user);
             // if user chose option 2, allow user to add new med
             } else if (choice.equals("2")) {
-                String medName = "";
-                String brand = "";
-                int doses = 0;
-            
-                do {
-                    System.out.print("What is the name of your medication?: ");
-                    medName = input.nextLine();
-                } while (medName.equals(""));
-
-                System.out.println("\n· · ─ · · ─ · ·\n");
-
-                do {
-                    System.out.print("How many doses?: ");
-                    doses = input.nextInt();
-                } while (doses <= 0);
-
-                System.out.println("\n· · ─ · · ─ · ·\n");
-                input.nextLine();
-
-                do {
-                    System.out.print("What brand?: ");
-                    brand = input.nextLine();
-                } while (brand.equals(""));
- 
-                Medicine medication = new Medicine(medName, doses);
-                Medicine.newMedicine(medName);
-                medication = Medicine.getSpecificMedicine(medName, brand, doses);
-
+                Medicine medication = Medicine.newMedicine(input);
                 user.addNutritionMedication(medication);
             // if user chose option 3, check if food is okay for user
             } else if (choice.equals("3")) {
@@ -387,6 +361,9 @@ public class Main {
                 } else {
                     System.out.println(food + " is NOT okay for your diet.");
                 }
+            // if user chose option 4, edit meal plan
+            } else if (choice.equals("4")) {
+                editAllergies(input, user);
             }
             // print divider
             System.out.println("\n· · ─ · · ─ · ·");
@@ -464,6 +441,58 @@ public class Main {
     }
 
     /**
+     * Displays allergies menu and allows the user to change their information
+     * @param input Scanner to allow user input
+     * @param user The user's information
+     */
+    public static void editAllergies(Scanner input, User user) {
+        String choice = "";
+        
+        do {
+            // display the "allergies" menu
+            System.out.println("\nWhat would you like to do?\n");
+            System.out.println("[1] View Allergies");
+            System.out.println("[2] Add to Allergies");
+            System.out.println("[3] Reset Allergies");
+            System.out.println("[4] Cancel\n");
+
+            // ask user to input choice
+            System.out.print("Input here: ");
+            // ensure that the user's choice is in uppercase
+            choice = input.nextLine().toUpperCase();
+
+        // repeat until the choice is one of the given options     
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4"));
+
+        // divider
+        System.out.println("\n· · ─ · · ─ · ·");
+
+        // check which choice the user made
+        switch (choice) {
+            // if the user chooses option 1 (print allergies)
+            case "1":
+                System.out.println(user.getAllergies());
+                break;
+            // if the user chooses option 2 (add to allergies)
+            case "2":
+                // ask user to input new step
+                System.out.print("New allergy: ");
+                String allergy = input.nextLine();
+                // set the new step  
+                user.addAllergy(allergy);
+                break;
+            // if the user chooses option 3 (reset allergies)
+            case "3":
+                // reset the allergies
+                user.resetAllergies();
+                break;
+            // if the user chooses option 4 (cancel action)
+            case "4":
+                break;
+        } 
+    }
+
+    /**
      * Displays the skincare menu text and allows the user to input a choice
      * @param input Scanner to allow user input
      * @param user The user
@@ -519,34 +548,7 @@ public class Main {
                 editSkincareRoutine(input, user);
             // if user chose option 2, allow user to add new med
             } else if (choice.equals("2")) {
-                String medName = "";
-                String brand = "";
-                int doses = 0;
-            
-                do {
-                    System.out.print("What is the name of your medication?: ");
-                    medName = input.nextLine();
-                } while (medName.equals(""));
-
-                System.out.println("\n· · ─ · · ─ · ·\n");
-
-                do {
-                    System.out.print("How many doses?: ");
-                    doses = input.nextInt();
-                } while (doses <= 0);
-
-                System.out.println("\n· · ─ · · ─ · ·\n");
-                input.nextLine();
-
-                do {
-                    System.out.print("What brand?: ");
-                    brand = input.nextLine();
-                } while (brand.equals(""));
- 
-
-                Medicine medication = new Medicine(medName, doses);
-                Medicine.newMedicine(medName);
-                medication = Medicine.getSpecificMedicine(medName, brand, doses);
+                Medicine medication = Medicine.newMedicine(input);
                 user.addSkincareMedication(medication);
             // if user chose option 3, edit skin concerns
             } else if (choice.equals("3")) {
@@ -723,40 +725,13 @@ public class Main {
         do {
             // if user chose option 1, view daily challenge
             if (choice.equals("1")) {
-                System.out.println(user.getDailyChallenge());
+                System.out.println("\nDaily Challenge: " + user.getDailyChallenge());
             // if user chose option 2, view previous daily challenges
             } else if (choice.equals("2")) {
                 user.viewPreviousChallenges(input);
             // if user chose option 3, allow user to add new med
             } else if (choice.equals("3")) {
-                String medName = "";
-                String brand = "";
-                int doses = 0;
-            
-                do {
-                    System.out.print("\nWhat is the name of your medication?: ");
-                    medName = input.nextLine();
-                } while (medName.equals(""));
-
-                System.out.println("\n· · ─ · · ─ · ·\n");
-
-                do {
-                    System.out.print("How many doses?: ");
-                    doses = input.nextInt();
-                } while (doses <= 0);
-
-                System.out.println("\n· · ─ · · ─ · ·\n");
-                input.nextLine();
-
-                do {
-                    System.out.print("What brand?: ");
-                    brand = input.nextLine();
-                } while (brand.equals(""));
- 
-
-                Medicine medication = new Medicine(medName, doses);
-                Medicine.newMedicine(medName);
-                medication = Medicine.getSpecificMedicine(medName, brand, doses);
+                Medicine medication = Medicine.newMedicine(input);
                 user.addMentalHealthMedication(medication);
             // if user chose option 4, edit reminders
             } else if (choice.equals("4")) {

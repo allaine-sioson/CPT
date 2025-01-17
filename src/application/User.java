@@ -142,6 +142,20 @@ public class User {
         return this.mentalHealth.getReminders();
     }
 
+    public ArrayList<String> getAllergies() {
+        return this.nutrition.getAllergies();
+    }
+
+    public void addAllergy(String allergy) {
+        this.nutrition.addAllergy(allergy);
+        updateUser();
+    }
+
+    public void resetAllergies() {
+        this.nutrition.resetAllergies();
+        updateUser();
+    }
+
     public void resetNutrition() {
         this.nutrition.setBreakfast("");
         this.nutrition.setLunch("");
@@ -194,12 +208,24 @@ public class User {
         user.put("Skin Concerns", this.skincare.getConcerns());
         user.put("Skincare Routine", this.skincare.getRoutine());
         user.put("Mental Health Medication", this.mentalHealth.getMedication());
+        user.put("Reminders", this.mentalHealth.getReminders());
 
         Methods.updateData("data.json", this.user);
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nGender: " + this.gender + "\nDiet: " + this.nutrition.getDiet() + "\nReligion: " + this.nutrition.getReligion() + "\nMeal Plan: " + this.nutrition.getMealPlan() + "\nAllergies: " + this.nutrition.getAllergies() + "\nSkincare Medication: " + this.skincare.getMedication() + "\nSkin Concerns: " + this.skincare.getConcerns() + "\nSkincare Routine: " + this.skincare.getRoutine() + "\nMental Health Medication: " + this.mentalHealth.getMedication();
+        return "Name: " + name +
+        "\nGender: " + this.gender + 
+        "\nDiet: " + this.nutrition.getDiet() + 
+        "\nReligion: " + this.nutrition.getReligion() + 
+        "\nMeal Plan: " + this.nutrition.getMealPlan() + 
+        "\nAllergies: " + this.nutrition.getAllergies() + 
+        "\nNutrition Medication: " + this.nutrition.getMedication() +
+        "\nSkincare Medication: " + this.skincare.getMedication() + 
+        "\nSkin Concerns: " + this.skincare.getConcerns() + 
+        "\nSkincare Routine: " + this.skincare.getRoutine() + 
+        "\nMental Health Medication: " + this.mentalHealth.getMedication() +
+        "\nReminders: " + this.mentalHealth.getReminders();
     }
 }

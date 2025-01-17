@@ -19,6 +19,8 @@ public class MentalHealth {
        this.reminders = new ArrayList<String>();
        this.dailyChallenge = findDailyChallenge();
        this.previousChallenges = new Queue<>();
+
+       getJSONMentalHealth();
     }
 
     public ArrayList<Medicine> getMedication() {
@@ -55,28 +57,32 @@ public class MentalHealth {
 
     public void viewPreviousChallenges(Scanner input) {
         String[] challenges = Methods.readFile("challenges.txt").split("\\.");
-        for (int i = 0; i < getDayOfYear()-2; i++) {
+        for (int i = 0; i < getDayOfYear(); i++) {
             this.previousChallenges.enqueue(challenges[i]);
         }
 
+        int challengeDate = 1;
         String choice = "";
         String challengesHead = this.previousChallenges.dequeue();
 
         do {
             if (this.previousChallenges.isEmpty()) {
-                for (int i = 0; i < getDayOfYear()-2; i++) {
+                System.out.println("No more challenges left. Resetting...");
+                for (int i = 0; i < getDayOfYear(); i++) {
                     this.previousChallenges.enqueue(challenges[i]);
+                    challengeDate = 1;
                 }
             }
-            System.out.println(challengesHead);
-            System.out.println("\nCheck previous?\n");
+            System.out.println("Day " + challengeDate + ": " + challengesHead);
+            System.out.println("\nCheck next?");
             System.out.print("Y/N: ");
-            choice = input.nextLine().toUpperCase();
+            choice = input.nextLine().toUpperCase() + "\n";
 
-            if (choice.equals("Y")) {
+            if (choice.equals("Y\n")) {
                 challengesHead = this.previousChallenges.dequeue();
+                challengeDate++;
             }
-        } while (!choice.equals("N"));
+        } while (!choice.equals("N\n"));
     }
 
     public String findDailyChallenge() {
@@ -137,6 +143,21 @@ public class MentalHealth {
         int dayOfYear = days + currentDay;
 
         return dayOfYear;
+    }
+
+    public void getJSONMentalHealth() {
+        String[] medJSON = Methods.getArrayData("data.json", "Mental Health Medication");
+        for (String med : medJSON) {
+            String[] newMed = med.split("\\|");
+            int doses = Integer.parseInt(newMed[1].replace("x", "").trim());
+
+            this.medication.add(new Medicine(newMed[0].trim(), doses));
+        }
+
+        String[] remindersJSON = Methods.getArrayData("data.json","Reminders");
+        for (String reminder : remindersJSON) {
+            this.reminders.add(reminder);
+        }
     }
 
 }
