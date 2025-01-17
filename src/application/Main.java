@@ -69,7 +69,7 @@ public class Main {
                 choice = displaySkincareMenu(input, user);
             // if the user chose "4" (view mental health section)
             } else if (choice.equals("4")) {
-                System.out.println("hello! \n");
+                choice = displayMentalHealthMenu(input, user);
             // if the user chose "Q" (quit)
             } else if (choice.equals("Q")) {
                 // break out of loop
@@ -198,6 +198,7 @@ public class Main {
                 user = new User("", "", "", "");
                 user.resetNutrition();
                 user.resetSkincare();
+                user.resetMentalHealth();
                 System.out.println("\nYour user information has been successfully cleared!\nQuitting Program.");
                 choice = "Q";
                 break;
@@ -366,10 +367,10 @@ public class Main {
                 } while (brand.equals(""));
  
                 Medicine medication = new Medicine(medName, doses);
+                Medicine.newMedicine(medName);
                 medication = Medicine.getSpecificMedicine(medName, brand, doses);
 
                 user.addNutritionMedication(medication);
-                break;
             // if user chose option 3, check if food is okay for user
             } else if (choice.equals("3")) {
                 System.out.print("What is the name of your food?: ");
@@ -502,7 +503,7 @@ public class Main {
     }
 
     /**
-     * Displays the skincare menu text and allows the user to input a choice
+     * Displays the skincare menu results text and allows the user to input a choice
      * @param input Scanner to allow user input
      * @param choice The previous choice the user made
      * @param user The user's information
@@ -544,9 +545,9 @@ public class Main {
  
 
                 Medicine medication = new Medicine(medName, doses);
+                Medicine.newMedicine(medName);
                 medication = Medicine.getSpecificMedicine(medName, brand, doses);
                 user.addSkincareMedication(medication);
-                break;
             // if user chose option 3, edit skin concerns
             } else if (choice.equals("3")) {
                 editSkinConcerns(input, user);
@@ -554,7 +555,7 @@ public class Main {
             // print divider
             System.out.println("\n· · ─ · · ─ · ·");
 
-            // display profile menu text
+            // display skincare menu 
             choice = displaySkincareMenu(input, user);
         // repeat until user's choice is one of the given options
         } while (!choice.equals(""));
@@ -615,7 +616,7 @@ public class Main {
     }
 
     /**
-     * Displays skincare routine menu and allows the user to change their information
+     * Displays skin concerns menu and allows the user to change their information
      * @param input Scanner to allow user input
      * @param user The user's information
      */
@@ -667,39 +668,36 @@ public class Main {
     }
 
     /**
-     * Displays the profile menu text and allows the user to input a choice
+     * Displays the mental health menu text and allows the user to input a choice
      * @param input Scanner to allow user input
      * @param user The user
-     * @param name Name of user
-     * @param gender Gender of user
-     * @param diet Diet of User
-     * @param religion Religion of User
      * @return the choice the user made
      */
-    public static String displayMentalMenu(Scanner input, User user, String name, String gender, String diet, String religion) {
+    public static String displayMentalHealthMenu(Scanner input, User user) {
         // initialize a default choice
         String choice = "";
 
         do {
-            // display "Profile Menu" text
-            System.out.println("\nWelcome to your profile!\n");
+            // display "Mental Health Menu" text
+            System.out.println("\nNeed to relax? (0 - V -)\n");
             System.out.println("· · ─ · · ─ · ·\n");
-            System.out.println("[1] View information");
-            System.out.println("[2] Change Information");
-            System.out.println("[3] Reset User");
-            System.out.println("[4] Go back\n");
+            System.out.println("[1] View daily challenge");
+            System.out.println("[2] View previous challenges");
+            System.out.println("[3] Add Mental Health Medication");
+            System.out.println("[4] Reminders");
+            System.out.println("[5] Go back\n");
 
            // ask user to input choice
            System.out.print("Input here: ");
            // ensure that the user's choice is in uppercase
            choice = input.nextLine().toUpperCase();
         // repeat until the choice is one of the given options  
-        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4"));
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("5"));
 
-        // if the choice isn't 4
-        if (!choice.equals("4")) {
-            // display the "Sub Profile Menu" based on what choice the user made
-            choice = displayProfileMenuResults(input, choice, user, name, gender, diet, religion);
+        // if the choice isn't 5
+        if (!choice.equals("5")) {
+            // display the "Mental Health Menu Results" based on what choice the user made
+            choice = displayMentalHealthMenuResults(input, choice, user);
         // if the choice also isn't "Q"
         } else if (!choice.equals("Q")) {
             // make the choice blank
@@ -709,6 +707,124 @@ public class Main {
         // return the user's choice
         return choice;
     }
+
+    
+    /**
+     * Displays the mental health menu results and allows the user to input a choice
+     * @param input Scanner to allow user input
+     * @param choice The previous choice the user made
+     * @param user The user's information
+     * @return the new choice the user made
+     */
+    public static String displayMentalHealthMenuResults(Scanner input, String choice, User user) {
+        // print divider
+        System.out.println("\n· · ─ · · ─ · ·");
+
+        do {
+            // if user chose option 1, view daily challenge
+            if (choice.equals("1")) {
+                System.out.println(user.getDailyChallenge());
+            // if user chose option 2, view previous daily challenges
+            } else if (choice.equals("2")) {
+                user.viewPreviousChallenges(input);
+            // if user chose option 3, allow user to add new med
+            } else if (choice.equals("3")) {
+                String medName = "";
+                String brand = "";
+                int doses = 0;
+            
+                do {
+                    System.out.print("\nWhat is the name of your medication?: ");
+                    medName = input.nextLine();
+                } while (medName.equals(""));
+
+                System.out.println("\n· · ─ · · ─ · ·\n");
+
+                do {
+                    System.out.print("How many doses?: ");
+                    doses = input.nextInt();
+                } while (doses <= 0);
+
+                System.out.println("\n· · ─ · · ─ · ·\n");
+                input.nextLine();
+
+                do {
+                    System.out.print("What brand?: ");
+                    brand = input.nextLine();
+                } while (brand.equals(""));
+ 
+
+                Medicine medication = new Medicine(medName, doses);
+                Medicine.newMedicine(medName);
+                medication = Medicine.getSpecificMedicine(medName, brand, doses);
+                user.addMentalHealthMedication(medication);
+            // if user chose option 4, edit reminders
+            } else if (choice.equals("4")) {
+                editReminders(input, user);
+            }
+            // print divider
+            System.out.println("\n· · ─ · · ─ · ·");
+
+            // display mental health menu
+            choice = displayMentalHealthMenu(input, user);
+        // repeat until user's choice is one of the given options
+        } while (!choice.equals(""));
+
+        return choice;
+    }
+
+    /**
+     * Displays mental health reminders menu and allows the user to change their information
+     * @param input Scanner to allow user input
+     * @param user The user's information
+     */
+    public static void editReminders(Scanner input, User user) {
+        String choice = "";
+        
+        do {
+            // display the "Reminders" menu
+            System.out.println("\nWhat would you like to do?\n");
+            System.out.println("[1] View Reminders");
+            System.out.println("[2] Add to Reminders");
+            System.out.println("[3] Reset Reminders");
+            System.out.println("[4] Cancel\n");
+
+            // ask user to input choice
+            System.out.print("Input here: ");
+            // ensure that the user's choice is in uppercase
+            choice = input.nextLine().toUpperCase();
+
+        // repeat until the choice is one of the given options     
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4"));
+
+        // divider
+        System.out.println("\n· · ─ · · ─ · ·");
+
+        // check which choice the user made
+        switch (choice) {
+            // if the user chooses option 1 (print reminders)
+            case "1":
+                System.out.println(user.getMentalHealthReminders());
+                break;
+            // if the user chooses option 2 (add to reminders)
+            case "2":
+                // ask user to input new step
+                System.out.print("New reminder: ");
+                String reminder = input.nextLine();
+                // set the new step  
+                user.addMentalHealthReminder(reminder);
+                break;
+            // if the user chooses option 3 (reset reminders)
+            case "3":
+                // reset the concerns
+                user.resetMentalHealthReminders();
+                break;
+            // if the user chooses option 4 (cancel action)
+            case "4":
+                break;
+        } 
+    }
+
 
     
 }

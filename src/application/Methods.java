@@ -7,31 +7,14 @@ package application;
  */
 
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.time.*;
+import java.time.format.*;
 import java.util.*;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
 public class Methods {
-    /**
-     * Get the current local time
-     * @return local time in hh:mm format
-     */
-    public static String getCurrentTime() {
-        // get the current local time
-        LocalTime time = LocalTime.now();
-
-        // format the time into hh:mm
-        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("hh:mm");
-        String formattedTime = time.format(formatTime);
-
-        // return the formatted time
-        return formattedTime;  
-    }
-
     /**
      * Get the current date (day only)
      * @return the date today (day only)

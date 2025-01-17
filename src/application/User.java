@@ -68,10 +68,6 @@ public class User {
         updateUser();
     }
 
-    public void viewPreviousChallenges(Scanner input) {
-        this.mentalHealth.viewPreviousChallenges(input);
-    }
-
     public String getName() {
         return name;
     }
@@ -128,6 +124,24 @@ public class User {
         return this.mentalHealth.getDailyChallenge();
     }
 
+    public void viewPreviousChallenges(Scanner input) {
+        this.mentalHealth.viewPreviousChallenges(input);
+    }
+
+    public void addMentalHealthMedication(Medicine medication) {
+        this.mentalHealth.addMedication(medication);
+        updateUser();
+    }
+
+    public void addMentalHealthReminder(String reminder) {
+        this.mentalHealth.addReminder(reminder);
+        updateUser();
+    }
+
+    public ArrayList<String> getMentalHealthReminders() {
+        return this.mentalHealth.getReminders();
+    }
+
     public void resetNutrition() {
         this.nutrition.setBreakfast("");
         this.nutrition.setLunch("");
@@ -153,6 +167,17 @@ public class User {
         resetSkincareRoutine();
         this.skincare.resetMedication();
 
+        updateUser();
+    }
+
+    public void resetMentalHealthReminders() {
+        this.mentalHealth.resetReminders();
+        updateUser();
+    }
+
+    public void resetMentalHealth() {
+        this.mentalHealth.resetReminders();
+        this.mentalHealth.resetMedication();
         updateUser();
     }
     

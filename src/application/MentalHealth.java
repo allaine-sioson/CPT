@@ -10,11 +10,13 @@ import java.util.*;
 
 public class MentalHealth {
     private ArrayList<Medicine> medication;
+    private ArrayList<String> reminders;
     private String dailyChallenge;
     private Queue<String> previousChallenges;
 
     public MentalHealth() {
        this.medication = new ArrayList<Medicine>(); 
+       this.reminders = new ArrayList<String>();
        this.dailyChallenge = findDailyChallenge();
        this.previousChallenges = new Queue<>();
     }
@@ -27,8 +29,28 @@ public class MentalHealth {
         return this.dailyChallenge;
     }
 
+    public ArrayList<String> getReminders() {
+        return this.reminders;
+    }
+
     public Queue<String> getPreviousChallenges() {
         return this.previousChallenges;
+    }
+
+    public void addMedication(Medicine med) {
+        this.medication.add(med);
+    }
+
+    public void addReminder(String reminder) {
+        this.reminders.add(reminder);
+    }
+
+    public void resetReminders() {
+        this.reminders.clear();
+    }
+
+    public void resetMedication() {
+        this.medication.clear();
     }
 
     public void viewPreviousChallenges(Scanner input) {

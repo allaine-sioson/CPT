@@ -15,7 +15,6 @@ public class Medicine {
     public Medicine(String name, int doses) {
         this.name = name;
         this.doses = doses;
-        newMedicine(name);
     }
 
     public static Medicine getSpecificMedicine(String name, String brand, int doses) {

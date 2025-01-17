@@ -19,6 +19,7 @@ This app is your go-to self-care app for creating daily wellness routines. From 
 - Create a list of skin concerns.
 
 ### 4. Mental Section
+- View previous challenges of the day.
 - Create a list of reminders of tasks that need to be completed daily.
 - Create a list of medication that are for your mental needs.
 

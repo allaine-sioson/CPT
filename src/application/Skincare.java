@@ -32,31 +32,31 @@ public class Skincare  {
 
     public void addStepToRoutine(String step) {
         this.routine.add(routineStep + ". " + step);
-        routineStep++;
+        this.routineStep++;
     }
 
     public ArrayList<Medicine> getMedication() {
-        return medication;
+        return this.medication;
     }
 
     public ArrayList<String> getConcerns() {
-        return concerns;
+        return this.concerns;
     }
 
     public ArrayList<String> getRoutine() {
-        return routine;
+        return this.routine;
     }
 
     public void resetRoutine() {
-        routine.clear();
+        this.routine.clear();
     }
 
     public void resetConcerns() {
-        concerns.clear();
+        this.concerns.clear();
     }
 
     public void resetMedication() {
-        medication.clear();
+        this.medication.clear();
     }
 
     public void getJSONSkincare() {
