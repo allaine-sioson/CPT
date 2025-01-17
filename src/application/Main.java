@@ -341,20 +341,33 @@ public class Main {
                 editMealPlan(input, user);
             // if user chose option 2, allow user to add new med
             } else if (choice.equals("2")) {
-                System.out.print("What is the name of your medication?: ");
-                String medName = input.nextLine();
+                String medName = "";
+                String brand = "";
+                int doses = 0;
+            
+                do {
+                    System.out.print("What is the name of your medication?: ");
+                    medName = input.nextLine();
+                } while (medName.equals(""));
 
                 System.out.println("\n· · ─ · · ─ · ·\n");
 
-                System.out.print("How many doses?: ");
-                int doses = input.nextInt();
+                do {
+                    System.out.print("How many doses?: ");
+                    doses = input.nextInt();
+                } while (doses <= 0);
 
                 System.out.println("\n· · ─ · · ─ · ·\n");
+                input.nextLine();
 
-                System.out.print("What brand?: ");
-                String brand  = input.nextLine();
-
+                do {
+                    System.out.print("What brand?: ");
+                    brand = input.nextLine();
+                } while (brand.equals(""));
+ 
                 Medicine medication = new Medicine(medName, doses);
+                medication = Medicine.getSpecificMedicine(medName, brand, doses);
+
                 user.addNutritionMedication(medication);
                 break;
             // if user chose option 3, check if food is okay for user
@@ -377,7 +390,7 @@ public class Main {
             // print divider
             System.out.println("\n· · ─ · · ─ · ·");
 
-            // display profile menu text
+            // display nutrition menu text
             choice = displayNutritionMenu(input, user);
         // repeat until user's choice is one of the given options
         } while (!choice.equals(""));
@@ -435,7 +448,7 @@ public class Main {
                 // set the new lunch  
                 user.setLunch(lunch);
                 break;
-            // if the user chooses option 4 (change religion)
+            // if the user chooses option 4 (edit dinner)
             case "4":
                 // ask user to input dinner
                 System.out.print("Change dinner: ");
@@ -477,7 +490,7 @@ public class Main {
 
         // if the choice isn't 4
         if (!choice.equals("4")) {
-            // display the "Sub Nutrition Menu" based on what choice the user made
+            // display the "Skincare Menu Results" based on what choice the user made
             choice = displaySkincareMenuResults(input, choice, user);
         } else {
             // make the choice blank
@@ -505,19 +518,36 @@ public class Main {
                 editSkincareRoutine(input, user);
             // if user chose option 2, allow user to add new med
             } else if (choice.equals("2")) {
-                System.out.print("What is the name of your medication?: ");
-                String medName = input.nextLine();
+                String medName = "";
+                String brand = "";
+                int doses = 0;
+            
+                do {
+                    System.out.print("What is the name of your medication?: ");
+                    medName = input.nextLine();
+                } while (medName.equals(""));
 
                 System.out.println("\n· · ─ · · ─ · ·\n");
 
+                do {
+                    System.out.print("How many doses?: ");
+                    doses = input.nextInt();
+                } while (doses <= 0);
 
-                System.out.print("How many doses?: ");
-                int doses = input.nextInt();
+                System.out.println("\n· · ─ · · ─ · ·\n");
+                input.nextLine();
+
+                do {
+                    System.out.print("What brand?: ");
+                    brand = input.nextLine();
+                } while (brand.equals(""));
+ 
 
                 Medicine medication = new Medicine(medName, doses);
+                medication = Medicine.getSpecificMedicine(medName, brand, doses);
                 user.addSkincareMedication(medication);
                 break;
-            // if user chose option 3, check if food is okay for user
+            // if user chose option 3, edit skin concerns
             } else if (choice.equals("3")) {
                 editSkinConcerns(input, user);
             }
@@ -635,5 +665,50 @@ public class Main {
                 break;
         } 
     }
+
+    /**
+     * Displays the profile menu text and allows the user to input a choice
+     * @param input Scanner to allow user input
+     * @param user The user
+     * @param name Name of user
+     * @param gender Gender of user
+     * @param diet Diet of User
+     * @param religion Religion of User
+     * @return the choice the user made
+     */
+    public static String displayMentalMenu(Scanner input, User user, String name, String gender, String diet, String religion) {
+        // initialize a default choice
+        String choice = "";
+
+        do {
+            // display "Profile Menu" text
+            System.out.println("\nWelcome to your profile!\n");
+            System.out.println("· · ─ · · ─ · ·\n");
+            System.out.println("[1] View information");
+            System.out.println("[2] Change Information");
+            System.out.println("[3] Reset User");
+            System.out.println("[4] Go back\n");
+
+           // ask user to input choice
+           System.out.print("Input here: ");
+           // ensure that the user's choice is in uppercase
+           choice = input.nextLine().toUpperCase();
+        // repeat until the choice is one of the given options  
+        } while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4"));
+
+        // if the choice isn't 4
+        if (!choice.equals("4")) {
+            // display the "Sub Profile Menu" based on what choice the user made
+            choice = displayProfileMenuResults(input, choice, user, name, gender, diet, religion);
+        // if the choice also isn't "Q"
+        } else if (!choice.equals("Q")) {
+            // make the choice blank
+            choice = "";
+        }
+
+        // return the user's choice
+        return choice;
+    }
+
     
 }
