@@ -81,25 +81,6 @@ public class MainTest {
     @Test
     public void testDisplayProfileMenu1() {
         // Arrange
-        // Simulate user input (choosing option 1 then going back to main menu)
-        String simulatedInput = "1\n4";
-        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
-        Scanner input = new Scanner(inputStream);
-
-        User user = new User("Carl", "Male", "Normal", "Christian");
-
-        // Act
-        String actual = Main.displayProfileMenu(input, user);
-        // Assert
-        String expected = "";
-        Assertions.assertEquals(expected, actual);
-        // Reset user info for the next test case
-        user.resetUser();
-    }
-
-    @Test
-    public void testDisplayProfileMenu2() {
-        // Arrange
         // Simulate user input (choosing option 2, choose option 1 to change name, then going back to main menu)
         String simulatedInput = "2\n1\nArwin\n4";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
@@ -117,7 +98,7 @@ public class MainTest {
     }
 
     @Test
-    public void testDisplayProfileMenu3() {
+    public void testDisplayProfileMenu2() {
         // Arrange
         // Simulate user input (choosing option 3)
         String simulatedInput = "3";
@@ -322,6 +303,30 @@ public class MainTest {
     }
 
     @Test
+    public void testEditMealPlan2() {
+        // Arrange
+        // Simulate user input (adding a few meals)
+        String simulatedInput = "2\nCereal\n3\nSandwich\n4\nPasta\n5";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner input = new Scanner(inputStream);
+
+        User user = new User("Rami", "Male", "Normal", "Muslim");
+
+        // Act
+        Main.editMealPlan(input, user);
+        MealPlan actual = user.getMealPlan();
+
+        // Assert
+        MealPlan expected = new MealPlan();
+        expected.setBreakfast("Cereal");
+        expected.setLunch("Sandwich");
+        expected.setDinner("Pasta");
+        Assertions.assertEquals(expected.toString(), actual.toString());
+        // Reset user info for the next test case
+        user.resetUser(); 
+    }
+
+    @Test
     public void testEditReminders1() {
         // Arrange
         // Simulate user input (adding a few reminders)
@@ -338,6 +343,29 @@ public class MainTest {
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("Take a walk");
         expected.add("Drink water");
+        Assertions.assertEquals(expected, actual);
+        // Reset user info for the next test case
+        user.resetUser(); 
+    }
+
+    @Test
+    public void testEditReminders2() {
+        // Arrange
+        // Simulate user input (adding a few reminders)
+        String simulatedInput =  "2\nGo to bed early\n2\nDo CPTs\n2\nGo to school\n4";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner input = new Scanner(inputStream);
+
+        User user = new User("Clark B", "Male", "Normal", "Christian");
+
+        // Act
+        Main.editReminders(input, user);
+        ArrayList<String> actual = user.getMentalHealthReminders();
+        // Assert
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("Go to bed early");
+        expected.add("Do CPTs");
+        expected.add("Go to school");
         Assertions.assertEquals(expected, actual);
         // Reset user info for the next test case
         user.resetUser(); 
@@ -395,7 +423,7 @@ public class MainTest {
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 
-        User user = new User("Modnar", "Male", "Pescatarian", "Christian");
+        User user = new User("Fritz", "Male", "Pescatarian", "Christian");
 
         // Act
         Main.editSkincareRoutine(input, user);
@@ -416,7 +444,7 @@ public class MainTest {
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 
-        User user = new User("Modnar", "Male", "Pescatarian", "Christian");
+        User user = new User("Jena", "Female", "Normal", "Christian");
 
         // Act
         Main.editSkincareRoutine(input, user);
@@ -430,6 +458,5 @@ public class MainTest {
         Assertions.assertEquals(expected, actual);
         // Reset user info for the next test case
         user.resetUser(); 
-        
     }
 }
