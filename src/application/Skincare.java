@@ -49,6 +49,7 @@ public class Skincare  {
 
     public void resetRoutine() {
         this.routine.clear();
+        this.routineStep = 1;
     }
 
     public void resetConcerns() {

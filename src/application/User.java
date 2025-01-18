@@ -163,6 +163,8 @@ public class User {
 
         this.nutrition.resetAllergies();
         this.nutrition.resetMedication();
+        this.nutrition.setDiet("");
+        this.nutrition.setReligion("");
         updateUser();
     }
 
@@ -192,6 +194,15 @@ public class User {
     public void resetMentalHealth() {
         this.mentalHealth.resetReminders();
         this.mentalHealth.resetMedication();
+        updateUser();
+    }
+
+    public void resetUser() {
+        this.name = "";
+        this.gender = "";
+        resetNutrition();
+        resetSkincare();
+        resetMentalHealth();
         updateUser();
     }
     
