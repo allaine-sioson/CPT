@@ -14,6 +14,9 @@ public class MentalHealth {
     private String dailyChallenge;
     private Queue<String> previousChallenges;
 
+    /**
+     * constructor for mental health class
+     */
     public MentalHealth() {
        this.medication = new ArrayList<Medicine>(); 
        this.reminders = new ArrayList<String>();
@@ -23,38 +26,72 @@ public class MentalHealth {
        getJSONMentalHealth();
     }
 
+    /**
+     * gets the user's mental health medication list
+     * @return the user's mental health medication list
+     */
     public ArrayList<Medicine> getMedication() {
         return medication;
     }
 
+    /**
+     * gets the daily challenge
+     * @return the daily challenge
+     */
     public String getDailyChallenge() {
         return this.dailyChallenge;
     }
 
+    /**
+     * gets the user's reminders
+     * @return the user's reminders
+     */
     public ArrayList<String> getReminders() {
         return this.reminders;
     }
 
+    /**
+     * gets the previous daily challenges
+     * @return the previous daily challenges
+     */
     public Queue<String> getPreviousChallenges() {
         return this.previousChallenges;
     }
 
+    /**
+     * adds a new medicine to the list of mental health medication
+     * @param med the new medicine to be added
+     */
     public void addMedication(Medicine med) {
         this.medication.add(med);
     }
 
+    /**
+     * adds a new reminder to the list of reminders
+     * @param reminder the new reminder to be added
+     */
     public void addReminder(String reminder) {
         this.reminders.add(reminder);
     }
 
+    /**
+     * resets the user's reminders
+     */
     public void resetReminders() {
         this.reminders.clear();
     }
 
+    /**
+     * resets the user's mental health medication
+     */
     public void resetMedication() {
         this.medication.clear();
     }
 
+    /**
+     * allows the user to go through the previous daily challenges
+     * @param input scanner to allow user input
+     */
     public void viewPreviousChallenges(Scanner input) {
         String[] challenges = Methods.readFile("assets\\challenges.txt").split("\\.");
         for (int i = 0; i < getDayOfYear(); i++) {
@@ -85,13 +122,21 @@ public class MentalHealth {
         } while (!choice.equals("N\n"));
     }
 
+    /**
+     * find the daily challenge in the list of daily challenges
+     * @return
+     */
     public String findDailyChallenge() {
         String[] challenges = Methods.readFile("assets\\challenges.txt").split("\\.");
         int dayOfYear = getDayOfYear();
         
         return challenges[dayOfYear-1];
     }
-        
+    
+    /**
+     * gets the current (ordinal) day of the year 
+     * @return
+     */
     public int getDayOfYear() {
         String[] currentDate = Methods.getCurrentDate().split("/");
         int days = 0;
@@ -145,6 +190,9 @@ public class MentalHealth {
         return dayOfYear;
     }
 
+    /**
+     * gets the user's mental health information from the data.json file
+     */
     public void getJSONMentalHealth() {
         String[] medJSON = Methods.getArrayData("data.json", "Mental Health Medication");
         for (String med : medJSON) {
