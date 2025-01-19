@@ -12,7 +12,6 @@ import application.*;
  */
 
 public class SkincareTest {
-
     @Test
     void testGetConcerns1() {
         // Arrange

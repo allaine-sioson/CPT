@@ -131,7 +131,15 @@ public class Methods {
         }
     }
 
+    /**
+     * checks if any of the content in the array is empty
+     * @param data
+     * @return
+     */
     public static boolean checkForEmpty(String[] data) {
+        if (data.length == 0) {
+            return true;
+        }
         for (String info: data) {
             if (info == null || info.isBlank()) {
                 return true;

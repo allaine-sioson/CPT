@@ -12,6 +12,12 @@ import application.*;
  */
 
 public class MainTest {
+    @BeforeEach void resetUser() {
+        // just in case the reset user method in each test case fails
+        User user = new User("John Doe", "Male", "Vegan", "Christian");
+        user.resetUser();
+    }
+    
     @Test
     public void testChangeUserInfo1() {
         // Arrange
