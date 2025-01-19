@@ -14,11 +14,21 @@ public class Medicine {
     private String name;
     private int doses;
 
+    /**
+     * constructor for medicine class
+     * @param name
+     * @param doses
+     */
     public Medicine(String name, int doses) {
         this.name = name;
         this.doses = doses;
     }
 
+    /**
+     * creates a new Medicine based on the user's input
+     * @param input the scanner to allow user input
+     * @return the new medicine created
+     */
     public static Medicine newMedicine(Scanner input) {
         String medName = "";
         String typeOfMed = "";
@@ -58,6 +68,9 @@ public class Medicine {
         }
     }
 
+    /**
+     * return a string representation of the medicine class
+     */
     @Override
     public String toString() {
         return "\"" + name + " | " + doses + "x\"";
