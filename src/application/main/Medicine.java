@@ -10,6 +10,9 @@ import application.medicines.*;
  * Medicine datatype
  */
 
+ /**
+  * Represents a Medicine with a name, number of doses, and the type of medication
+  */
 public class Medicine {
     private String name;
     private int doses;

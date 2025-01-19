@@ -11,6 +11,9 @@ import application.medicines.*;
  * Mental Health datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the MentalHealth class
+  */
 public class MentalHealthTest {
     @Test
     void testGetMedication() {

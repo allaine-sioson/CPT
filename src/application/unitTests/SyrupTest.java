@@ -13,6 +13,9 @@ import application.main.*;
  * Syrup datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Syrup class
+  */
 public class SyrupTest {
     @Test
     public void testNewMedicine() {

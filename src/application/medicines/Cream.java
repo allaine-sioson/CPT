@@ -7,6 +7,9 @@ import application.main.Medicine;
  * Cream datatype
  */
 
+ /**
+  * The Cream class represents a type of medicine in the form of a cream
+  */
 public class Cream extends Medicine {
     /**
      * constructor for Cream Medicine class

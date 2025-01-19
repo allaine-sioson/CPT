@@ -13,6 +13,9 @@ import application.medicines.*;
  * Medicine datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Medicine class
+  */
 public class MedicineTest {
     @Test
     void testNewMedicine1() {

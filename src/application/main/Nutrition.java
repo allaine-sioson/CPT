@@ -8,6 +8,9 @@ import java.util.*;
  * Nutrition datatype
  */
 
+/**
+ * The Nutrition class represents the nutritional information of a user, including their diet, religion, allergies, medication, and meal plan
+ */
 public class Nutrition {
     private ArrayList<String> allergies;
     private ArrayList<Medicine> medication;

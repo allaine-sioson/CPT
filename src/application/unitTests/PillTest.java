@@ -12,6 +12,9 @@ import application.medicines.*;
  * Pill datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Pill class
+  */
 public class PillTest {
     @Test
     public void testNewMedicine() {

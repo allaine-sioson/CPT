@@ -6,6 +6,9 @@ package application.main;
  * Meal plan datatype
  */
 
+ /**
+  * MealPlan class represents a meal plan with breakfast, lunch, and dinner
+  */
 public class MealPlan {
     private String breakfast, lunch, dinner;
     

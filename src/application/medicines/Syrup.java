@@ -7,6 +7,9 @@ import application.main.Medicine;
  * Syrup datatype
  */
 
+ /**
+  * The Syrup class represents a type of medicine in the form of a syrup
+  */
 public class Syrup extends Medicine {
     /**
      * constructor for Syrup Medicine class

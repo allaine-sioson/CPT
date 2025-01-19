@@ -11,6 +11,9 @@ import application.main.*;
  * Main Class Test File
  */
 
+ /**
+  * Unit tests for the Main class
+  */
 public class MainTest {
     @BeforeEach void resetUser() {
         // just in case the reset user method in each test case fails

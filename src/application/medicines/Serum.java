@@ -7,6 +7,9 @@ import application.main.Medicine;
  * Serum datatype
  */
 
+ /**
+  * The Serum class represents a type of medicine in the form of a serum
+  */
 public class Serum extends Medicine {
     /**
      * constructor for Serum Medicine class

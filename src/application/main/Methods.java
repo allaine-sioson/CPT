@@ -14,6 +14,9 @@ import org.json.simple.parser.*;
  * Methods file with methods that are to be used in other files
  */
 
+ /**
+  * The Methods class provides different methods to be used in different files, mostly to read in and write data
+  */
 public class Methods {
     /**
      * get the current date 

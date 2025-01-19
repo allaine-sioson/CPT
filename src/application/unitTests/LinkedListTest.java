@@ -13,6 +13,9 @@ import org.junit.jupiter.api.Test;
  * LinkedList datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the LinkedList class
+  */
 public class LinkedListTest {
     @Test
     public void testGetFirst1() {

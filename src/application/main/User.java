@@ -9,6 +9,9 @@ import org.json.simple.*;
  * User datatype
  */
 
+ /**
+  * The User class represents the user's profile with information related to their nutrition, skincare, and mental health.
+  */
 public class User {
     private String name, gender;
     private HashMap<String,Object> hashmap;

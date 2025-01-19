@@ -8,6 +8,9 @@ import java.util.*;
  * Mental Health datatype
  */
 
+ /**
+  * The MentalHealth class represents a user's mental health data, including medication and reminders
+  */
 public class MentalHealth {
     private ArrayList<Medicine> medication;
     private ArrayList<String> reminders;

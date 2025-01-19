@@ -7,6 +7,9 @@ import application.main.Medicine;
  * Pill datatype
  */
 
+ /**
+  * The Pill class represents a type of medicine in the form of a pill
+  */
 public class Pill extends Medicine {
     /**
      * constructor for Pill Medicine class

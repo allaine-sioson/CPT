@@ -7,6 +7,9 @@ import java.util.*;
  * Skincare datatype
  */
 
+ /**
+  * The Skincare class represents a user's skincare routine, concerns, and medications
+  */
 public class Skincare  {
     private ArrayList<String> concerns, routine;
     private ArrayList<Medicine> medication;

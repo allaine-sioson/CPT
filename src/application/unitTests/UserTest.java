@@ -12,6 +12,9 @@ import java.util.*;
  * User datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the User class
+  */
 public class UserTest {
     @BeforeEach void resetUser() {
         // just in case the reset user method in each test case fails

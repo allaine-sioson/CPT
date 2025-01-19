@@ -13,6 +13,9 @@ import application.medicines.*;
  * Cream datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Cream class
+  */
 public class CreamTest {
     @Test
     public void testNewMedicine() {

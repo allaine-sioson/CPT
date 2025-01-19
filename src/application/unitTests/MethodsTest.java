@@ -15,6 +15,9 @@ import application.main.*;
  * Methods datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Methods class
+  */
 public class MethodsTest {
     @BeforeEach void resetUser() {
         // just in case the reset user method in each test case fails

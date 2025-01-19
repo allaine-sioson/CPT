@@ -8,7 +8,9 @@ import javax.naming.OperationNotSupportedException;
  * LinkedList datatype
  */
 
-
+/**
+ * Custom implementation of a singly linked list
+ */
 public class LinkedList <T> {
     // instance vars
     private Node<T> head;

@@ -11,6 +11,9 @@ import application.main.*;
  * Skincare datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Skincare class
+  */
 public class SkincareTest {
     @Test
     void testGetConcerns1() {

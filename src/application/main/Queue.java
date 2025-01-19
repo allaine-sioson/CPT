@@ -7,6 +7,9 @@ import javax.naming.OperationNotSupportedException;
  * Queue datatype
  */
 
+ /**
+  * A generic Queue implementation using composition with a LinkedList
+  */
 public class Queue<T> {
     // composition
     private LinkedList<T> queue;

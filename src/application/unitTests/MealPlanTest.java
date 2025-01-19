@@ -9,6 +9,9 @@ import application.main.*;
  * Meal Plan datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the MealPlan class
+  */
 public class MealPlanTest {
     @Test
     void testToString1() {

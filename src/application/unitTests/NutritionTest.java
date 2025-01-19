@@ -13,6 +13,10 @@ import application.medicines.*;
  * Nutrition datatype Unit Tests
  */
 
+
+ /**
+  * Unit tests for the Nutrition class
+  */
 public class NutritionTest {
     @Test
     void testGetAllergies1() {

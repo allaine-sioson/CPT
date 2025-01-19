@@ -13,6 +13,9 @@ import application.medicines.*;
  * Serum datatype Unit Tests
  */
 
+ /**
+  * Unit tests for the Serum class
+  */
 public class SerumTest {
     @Test
     public void testNewMedicine() {
