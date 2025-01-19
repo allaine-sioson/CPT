@@ -2,7 +2,7 @@ package application;
 
 /**
  * author: Allaine
- * date: 15/01/2025
+ * date: 18/01/2025
  * Nutrition datatype
  */
 
@@ -131,9 +131,15 @@ public class Nutrition {
         }
 
         for (String foodInfo : foodData) {
-            if (dietData.contains(foodInfo) || religionData.contains(foodInfo)) {
+            if (dietData.toLowerCase().contains(foodInfo.toLowerCase()) || religionData.toLowerCase().contains(foodInfo.toLowerCase())) {
                 result = false;
                 break;
+            }
+            for (String allergy : allergies) {
+                if (allergy.toLowerCase().contains(foodInfo.toLowerCase())) {
+                    result = false;
+                    break;
+                }
             }
         }
 

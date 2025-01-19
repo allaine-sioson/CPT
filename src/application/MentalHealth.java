@@ -2,8 +2,8 @@ package application;
 
 /**
  * author: Allaine
- * date: 15/01/2025
- * Mental datatype
+ * date: 18/01/2025
+ * Mental Health datatype
  */
 
 import java.util.*;
