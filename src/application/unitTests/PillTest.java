@@ -1,6 +1,10 @@
 package application.unitTests;
 
-import org.junit.jupiter.api.Test;
+import java.io.*;
+import java.util.*;
+import org.junit.jupiter.api.*;
+import application.*;
+import application.medicines.*;
 
 /**
  * @author: Allaine
@@ -11,11 +15,33 @@ import org.junit.jupiter.api.Test;
 public class PillTest {
     @Test
     void testNewMedicine() {
+        // Arrange
+        // Simulate user input (FeraMAX, 1x, Pill)
+        String simulatedInput = "FeraMAX\n1\nPill";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner input = new Scanner(inputStream);
 
+        // Act
+        Medicine actual = Medicine.newMedicine(input);
+
+        // Assert
+        Pill expected = new Pill("FeraMAX", 1);
+        Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
     @Test
     void testToString() {
+        // Arrange
+        // Simulate user input (Tylenol , 2x, Pill)
+        String simulatedInput = "Tylenol\n2\nPill";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner input = new Scanner(inputStream);
 
+        // Act
+        String actual = Medicine.newMedicine(input).toString();
+
+        // Assert
+        String expected = "\"Pill: Tylenol | 2x\"";
+        Assertions.assertEquals(expected, actual);
     }
 }
