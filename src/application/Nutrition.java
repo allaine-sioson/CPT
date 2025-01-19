@@ -79,11 +79,31 @@ public class Nutrition {
      * @param religion the new diet of the user
      */
     public void setReligion(String religion) {
-        this.religion = religion;
+
+        switch (religion) {
+            case "Islam":
+                this.religion = "Muslim";
+                break;
+            case "Judaism":
+                this.religion = "Jewish";
+                break;
+            case "Christianity":
+                this.religion = "Christian";
+                break;
+            case "Hinduism":
+                this.religion = "Hindu";
+                break;
+            case "Sikhism":
+                this.religion = "Hindu";
+                break;
+            default:
+                this.religion = religion;
+                break;
+        }
     }
 
     /**
-     * sets the user's breakfast in their meal plan
+     * sets the user's breakfast in thei meal plan
      * @param breakfast the user's new breakfast
      */
     public void setBreakfast(String breakfast) {

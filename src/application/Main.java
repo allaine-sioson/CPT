@@ -32,13 +32,20 @@ public class Main {
             // ask user for their name
             System.out.print("Please enter your name: ");
             name = input.nextLine();
+            System.out.println("\n· · ─ · · ─ · ·\n");
             // ask user for their gender
-            System.out.print("Please enter your biological gender: ");
+            System.out.print("Please enter your gender: ");
             gender = input.nextLine();
+            System.out.println("\n· · ─ · · ─ · ·\n");
             // ask user for their diet 
+            System.out.println("NOTE: If your diet isn't listed and it has dietary restrictions, please manually add your dietary restrictions in the allergies section. ");
+            System.out.println("[Vegan, Vegetarian, Pescatarian]");
             System.out.print("Please enter your type of diet: ");
             diet = input.nextLine();
+            System.out.println("\n· · ─ · · ─ · ·\n");
             // ask user for their religion
+            System.out.println("NOTE: If your religion isn't listed and it has dietary restrictions,\nplease manually add your dietary restrictions in the allergies section. ");
+            System.out.println("[Jewish, Hindu, Muslim, Sikhism]");
             System.out.print("Please enter your religion: ");
             religion = input.nextLine();
             // create user with the given data
