@@ -14,7 +14,7 @@ import application.medicines.*;
 
 public class PillTest {
     @Test
-    void testNewMedicine() {
+    public void testNewMedicine() {
         // Arrange
         // Simulate user input (FeraMAX, 1x, Pill)
         String simulatedInput = "FeraMAX\n1\nPill";
@@ -30,7 +30,7 @@ public class PillTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         // Arrange
         // Simulate user input (Tylenol , 2x, Pill)
         String simulatedInput = "Tylenol\n2\nPill";

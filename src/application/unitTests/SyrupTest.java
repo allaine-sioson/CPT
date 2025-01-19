@@ -15,7 +15,7 @@ import application.*;
 
 public class SyrupTest {
     @Test
-    void testNewMedicine() {
+    public void testNewMedicine() {
         // Arrange
         // Simulate user input (Paracetamol, 3x, Syrup)
         String simulatedInput = "Paracetamol\n3\nSyrup";
@@ -31,7 +31,7 @@ public class SyrupTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         // Arrange
         // Simulate user input (Antihistamine, 2x, Syrup)
         String simulatedInput = "Antihistamine\n2\nSyrup";

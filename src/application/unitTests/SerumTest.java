@@ -15,7 +15,7 @@ import application.medicines.*;
 
 public class SerumTest {
     @Test
-    void testNewMedicine() {
+    public void testNewMedicine() {
         // Arrange
         // Simulate user input (Salicylic Acid, 2x, Serum)
         String simulatedInput = "Salicylic Acid\n2\nSerum";
@@ -31,7 +31,7 @@ public class SerumTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         // Arrange
         // Simulate user input (Niacinamide , 1x, Serum)
         String simulatedInput = "Niacinamide\n1\nSerum";

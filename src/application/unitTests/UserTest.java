@@ -46,7 +46,7 @@ public class UserTest {
     }
     
     @Test
-    void testGetAllergies1() {
+    public void testGetAllergies1() {
         // Arrange
         User user = new User("Allaine", "Female", "Vegetarian", "Catholic");
         user.addAllergy("Peanuts");
@@ -61,7 +61,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetAllergies2() {
+    public void testGetAllergies2() {
         // Arrange
         User user = new User("Allen", "Male", "Pescatarian", "Christian");
         user.addAllergy("Honey");
@@ -78,7 +78,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetDailyChallenge() {
+    public void testGetDailyChallenge() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
@@ -91,7 +91,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetDiet1() {
+    public void testGetDiet1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
@@ -104,7 +104,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetDiet2() {
+    public void testGetDiet2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         // Act
@@ -117,7 +117,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetGender1() {
+    public void testGetGender1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
@@ -130,7 +130,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetGender2() {
+    public void testGetGender2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         // Act
@@ -143,7 +143,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetMealPlan1() {
+    public void testGetMealPlan1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         user.setBreakfast("Vegan Pandesal");
@@ -162,7 +162,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetMealPlan2() {
+    public void testGetMealPlan2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         user.setBreakfast("Whole Wheat Bread");
@@ -181,7 +181,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetMentalHealthReminders1() {
+    public void testGetMentalHealthReminders1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         user.addMentalHealthReminder("Take a walk");
@@ -198,7 +198,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetMentalHealthReminders2() {
+    public void testGetMentalHealthReminders2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         user.addMentalHealthReminder("Meditate");
@@ -219,7 +219,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetName1() {
+    public void testGetName1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
@@ -232,7 +232,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetName2() {
+    public void testGetName2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         // Act
@@ -245,7 +245,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetReligion1() {
+    public void testGetReligion1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
@@ -258,7 +258,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetReligion2() {
+    public void testGetReligion2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         // Act
@@ -271,7 +271,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetSkinConcerns1() {
+    public void testGetSkinConcerns1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         user.addToSkinConcerns("Acne");
@@ -288,7 +288,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetSkinConcerns2() {
+    public void testGetSkinConcerns2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         user.addToSkinConcerns("Oily skin");
@@ -307,7 +307,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetSkincareRoutine1() {
+    public void testGetSkincareRoutine1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         user.addToSkincareRoutine("Cleanse");
@@ -324,7 +324,7 @@ public class UserTest {
     }
 
     @Test
-    void testGetSkincareRoutine2() {
+    public void testGetSkincareRoutine2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         user.addToSkincareRoutine("Exfoliate");
@@ -343,7 +343,7 @@ public class UserTest {
     }
 
     @Test
-    void testIsOkayForMe1() {
+    public void testIsOkayForMe1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         user.addAllergy("Peanuts");
@@ -364,7 +364,7 @@ public class UserTest {
     }
 
     @Test
-    void testIsOkayForMe2() {
+    public void testIsOkayForMe2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
      
@@ -384,7 +384,7 @@ public class UserTest {
     }
 
     @Test
-    void testIsOkayForMe3() {
+    public void testIsOkayForMe3() {
         // Arrange
         User user = new User("Andy","Male","Normal","Christian");
      
@@ -404,7 +404,7 @@ public class UserTest {
     }
 
     @Test
-    void testToString1() {
+    public void testToString1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
 
@@ -430,7 +430,7 @@ public class UserTest {
     }
 
     @Test
-    void testToString2() {
+    public void testToString2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         user.setBreakfast("Whole Wheat Bread");

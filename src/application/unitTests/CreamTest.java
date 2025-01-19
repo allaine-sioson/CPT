@@ -15,7 +15,7 @@ import application.medicines.*;
 
 public class CreamTest {
     @Test
-    void testNewMedicine() {
+    public void testNewMedicine() {
         // Arrange
         // Simulate user input (Hydrocortisone, 2x, Cream)
         String simulatedInput = "Hydrocortisone\n2\nCream";
@@ -31,7 +31,7 @@ public class CreamTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         // Arrange
         // Simulate user input (Bioderm, 3x, Cream)
         String simulatedInput = "Bioderm\n3\nCream";
