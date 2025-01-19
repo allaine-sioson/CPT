@@ -719,7 +719,7 @@ public class Main {
             switch (choice) {
                 // if the user chooses option 1 (print reminders)
                 case "1":
-                    System.out.println(user.getMentalHealthReminders());
+                    System.out.println(user.getReminders());
                     break;
                 // if the user chooses option 2 (add to reminders)
                 case "2":
@@ -732,7 +732,7 @@ public class Main {
                 // if the user chooses option 3 (reset reminders)
                 case "3":
                     // reset the concerns
-                    user.resetMentalHealthReminders();
+                    user.resetReminders();
                     break;
                 // if the user chooses option 4 (cancel action)
                 case "4":

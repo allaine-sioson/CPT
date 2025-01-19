@@ -187,13 +187,13 @@ public class UserTest {
     }
 
     @Test
-    public void testGetMentalHealthReminders1() {
+    public void testGetReminders1() {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         user.addMentalHealthReminder("Take a walk");
         user.addMentalHealthReminder("Drink water");
         // Act
-        ArrayList<String> actual = user.getMentalHealthReminders();
+        ArrayList<String> actual = user.getReminders();
         // Assert
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("Take a walk");
@@ -204,7 +204,7 @@ public class UserTest {
     }
 
     @Test
-    public void testGetMentalHealthReminders2() {
+    public void testGetReminders2() {
         // Arrange
         User user = new User("Allen","Male","Pescatarian","Christian");
         user.addMentalHealthReminder("Meditate");
@@ -212,7 +212,7 @@ public class UserTest {
         user.addMentalHealthReminder("Exercise");
         user.addMentalHealthReminder("Sleep early");
         // Act
-        ArrayList<String> actual = user.getMentalHealthReminders();
+        ArrayList<String> actual = user.getReminders();
         // Assert
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("Meditate");

@@ -17,7 +17,7 @@ public class MainTest {
         User user = new User("John Doe", "Male", "Vegan", "Christian");
         user.resetUser();
     }
-    
+
     @Test
     public void testChangeUserInfo1() {
         // Arrange
@@ -344,7 +344,7 @@ public class MainTest {
 
         // Act
         Main.editReminders(input, user);
-        ArrayList<String> actual = user.getMentalHealthReminders();
+        ArrayList<String> actual = user.getReminders();
         // Assert
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("Take a walk");
@@ -366,7 +366,7 @@ public class MainTest {
 
         // Act
         Main.editReminders(input, user);
-        ArrayList<String> actual = user.getMentalHealthReminders();
+        ArrayList<String> actual = user.getReminders();
         // Assert
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("Go to bed early");
