@@ -1,15 +1,15 @@
 package application.unitTests;
 
+import java.io.*;
+import java.util.*;
+import org.junit.jupiter.api.*;
+import application.*;
+
 /**
  * @author: Allaine
  * @date: 18/01/2025
  * Main Class Test File
  */
-
-import java.io.*;
-import java.util.*;
-import org.junit.jupiter.api.*;
-import application.*;
 
 public class MainTest {
     @Test

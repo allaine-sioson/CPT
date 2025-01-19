@@ -1,11 +1,5 @@
 package application;
 
-/**
- * @author: Allaine
- * @date: 18/01/2025
- * Methods file with methods that are to be used in other files
- */
-
 import java.io.*;
 import java.time.*;
 import java.time.format.*;
@@ -14,10 +8,16 @@ import java.util.*;
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
+/**
+ * @author: Allaine
+ * @date: 18/01/2025
+ * Methods file with methods that are to be used in other files
+ */
+
 public class Methods {
     /**
-     * Get the current date (day only)
-     * @return the date today (day only)
+     * Get the current date 
+     * @return the date today in MM/dd format
      */
     public static String getCurrentDate() {
         // get the current local time

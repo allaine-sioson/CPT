@@ -1,12 +1,11 @@
 package application;
+import java.util.*;
 
 /**
  * @author: Allaine
  * @date: 18/01/2025
  * Skincare datatype
  */
-
-import java.util.*;
 
 public class Skincare  {
     private ArrayList<String> concerns, routine;

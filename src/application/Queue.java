@@ -1,12 +1,11 @@
 package application;
+import javax.naming.OperationNotSupportedException;
 
 /**
  * @author: Allaine
  * @date: 18/01/2025
  * Queue datatype
  */
-
-import javax.naming.OperationNotSupportedException;
 
 public class Queue<T> {
     // composition

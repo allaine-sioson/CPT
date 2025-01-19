@@ -1,14 +1,13 @@
 package application;
 
+import java.util.*;
+import org.json.simple.*;
+
 /**
  * @author: Allaine
  * @date: 18/01/2025
  * User datatype
  */
-
-import java.util.*;
-
-import org.json.simple.*;
 
 public class User {
     private String name, gender;

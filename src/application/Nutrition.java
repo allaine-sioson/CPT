@@ -1,12 +1,12 @@
 package application;
 
+import java.util.*;
+
 /**
  * @author: Allaine
  * @date: 18/01/2025
  * Nutrition datatype
  */
-
-import java.util.*;
 
 public class Nutrition {
     private ArrayList<String> allergies;

@@ -1,12 +1,12 @@
 package application;
 
+import java.util.*;
+
 /**
  * @author: Allaine
  * @date: 18/01/2025
  * Mental Health datatype
  */
-
-import java.util.*;
 
 public class MentalHealth {
     private ArrayList<Medicine> medication;
