@@ -1,1 +1,1 @@
-NOT ALLOWED: Meats (beef, pork, etc), poultry, seafood
+beef, pork, poultry, seafood, other meats

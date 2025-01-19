@@ -13,6 +13,12 @@ import java.util.*;
  */
 
 public class UserTest {
+    @BeforeEach void resetUser() {
+        // just in case the reset user method in each test case fails
+        User user = new User("John Doe", "Male", "Vegan", "Christian");
+        user.resetUser();
+    }
+
     @Test
     public void testAddAllergy1() {
         // Arrange
@@ -349,7 +355,7 @@ public class UserTest {
         user.addAllergy("Peanuts");
 
         // Simulate user input (saying no to every question besides the one asking if it contains peanuts)
-        String simulatedInput = "n\nn\nn\nn\nn\nn\nn\ny";
+        String simulatedInput = "y\nn\nn\nn\nn\nn";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 
@@ -369,7 +375,7 @@ public class UserTest {
         User user = new User("Allen","Male","Pescatarian","Christian");
      
         // Simulate user input (saying no to every question besides the one asking if it contains pork) 
-        String simulatedInput = "n\ny\nn\nn\nn\nn\nn";
+        String simulatedInput = "n\ny\nn\ny";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 
@@ -388,8 +394,8 @@ public class UserTest {
         // Arrange
         User user = new User("Andy","Male","Normal","Christian");
      
-        // Simulate user input (saying no to every question besides the one asking if it contains beef) 
-        String simulatedInput = "y\nn\nn\nn\nn\nn\nn";
+        // Simulate user input (No questions given, so no answers given) 
+        String simulatedInput = "";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 

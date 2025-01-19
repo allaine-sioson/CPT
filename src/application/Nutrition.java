@@ -84,34 +84,74 @@ public class Nutrition {
         return this.medication;
     }
 
-    //TODO: fix method to also check allergies
     public boolean isOkayForMe(Scanner input, String food) {
-        String dietData;
-        String religionData;
+        String[] dietData;
+        String[] religionData;
 
-        if (!diet.toLowerCase().equals("normal")) {
-            dietData = Methods.readFile("assets\\diets\\"+ diet.toLowerCase() + "Data.txt").toLowerCase();
-        } else {
-            dietData = "";
+        String[] existingDietFiles = {"pescatarian", "vegan", "vegetarian"};
+        String[] existingReligionFiles = {"jewish", "muslim"};
+
+        String currentDietFile = "none";
+        String currentReligionFile = "none";
+
+        for (String existingDietFile : existingDietFiles) {
+            if (this.diet.toLowerCase().equals(existingDietFile)) {
+                currentDietFile = this.diet.toLowerCase();
+                break;
+            }
         }
 
-        if (!religion.toLowerCase().equals("christian")) {
-            religionData = Methods.readFile("assets\\religions\\" + religion.toLowerCase() + "Data.txt").toLowerCase();
+        for (String existingReligionFile : existingReligionFiles) {
+            if (this.religion.toLowerCase().equals(existingReligionFile)) {
+                currentReligionFile = this.religion.toLowerCase();
+                break;
+            }
+        }
+
+        if (!currentDietFile.equals("none")) {
+            dietData = Methods.readFile("assets\\diets\\"+ currentDietFile + "Data.txt").toLowerCase().split(", ");
         } else {
-            religionData = "";
+            dietData = new String[0];
+        }
+
+        if (!currentReligionFile.equals("none")) {
+            religionData = Methods.readFile("assets\\religions\\" + currentReligionFile + "Data.txt").toLowerCase().split(", ");
+        } else {
+            religionData = new String[0];
         }
 
         ArrayList<String> foodTypes = new ArrayList<>();
-        foodTypes.add("beef");
-        foodTypes.add("pork");
-        foodTypes.add("poultry");
-        foodTypes.add("seafood");
-        foodTypes.add("animal by-products");
-        foodTypes.add("dairy");
-        foodTypes.add("gluten");
         
         for (String allergy : this.allergies) {
             foodTypes.add(allergy);
+        }
+
+        for (String dietInfo : dietData) {
+            boolean infoAlreadyAdded = false;
+            for (String type : foodTypes) {
+                if (type.equals(dietInfo)) {
+                    infoAlreadyAdded = true;
+                    break;
+                }
+            }
+
+            if (!infoAlreadyAdded) {
+                foodTypes.add(dietInfo);
+            }
+        }
+
+        for (String religionInfo : religionData) {
+            boolean infoAlreadyAdded = false;
+            for (String type : foodTypes) {
+                if (type.equals(religionInfo)) {
+                    infoAlreadyAdded = true;
+                    break;
+                }
+            }
+
+            if (!infoAlreadyAdded) {
+                foodTypes.add(religionInfo);
+            }
         }
 
         ArrayList<String> foodData = new ArrayList<>();
@@ -131,12 +171,22 @@ public class Nutrition {
         }
 
         for (String foodInfo : foodData) {
-            if (dietData.toLowerCase().contains(foodInfo.toLowerCase()) || religionData.toLowerCase().contains(foodInfo.toLowerCase())) {
-                result = false;
-                break;
-            }
             for (String allergy : allergies) {
                 if (allergy.toLowerCase().contains(foodInfo.toLowerCase())) {
+                    result = false;
+                    break;
+                }
+            }
+
+            for (String dietInfo : dietData) {
+                if (dietInfo.toLowerCase().contains(foodInfo.toLowerCase())) {
+                    result = false;
+                    break;
+                }
+            }
+
+            for (String religionInfo : religionData) {
+                if (religionInfo.toLowerCase().contains(foodInfo.toLowerCase())) {
                     result = false;
                     break;
                 }

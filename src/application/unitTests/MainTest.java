@@ -179,7 +179,7 @@ public class MainTest {
     public void testDisplayNutritionMenu2() {
         // Arrange
         // Simulate user input (choosing option 3, checking if bacon is okay, then leaving menu)
-        String simulatedInput = "3\nBacon\nn\ny\nn\nn\nn\nn\nn\n5";
+        String simulatedInput = "3\nBacon\n5";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 
