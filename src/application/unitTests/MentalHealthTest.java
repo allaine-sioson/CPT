@@ -1,6 +1,9 @@
 package application.unitTests;
 
-import org.junit.jupiter.api.Test;
+import java.util.*;
+import org.junit.jupiter.api.*;
+import application.*;
+import application.medicines.*;
 
 /**
  * @author: Allaine
@@ -10,62 +13,34 @@ import org.junit.jupiter.api.Test;
 
 public class MentalHealthTest {
     @Test
-    void testAddMedication() {
-
-    }
-
-    @Test
-    void testAddReminder() {
-
-    }
-
-    @Test
-    void testFindDailyChallenge() {
-
-    }
-
-    @Test
-    void testGetDailyChallenge() {
-
-    }
-
-    @Test
-    void testGetDayOfYear() {
-
-    }
-
-    @Test
-    void testGetJSONMentalHealth() {
-
-    }
-
-    @Test
     void testGetMedication() {
+        // Arrange
+        MentalHealth mentalHealth = new MentalHealth();
+        mentalHealth.addMedication(new Pill("Lisdexamfetamine", 1));
 
-    }
-
-    @Test
-    void testGetPreviousChallenges() {
-
+        // Act
+        ArrayList<Medicine> actual = mentalHealth.getMedication();
+        
+        // Assert
+        ArrayList<Medicine> expected = new ArrayList<>();
+        expected.add(new Pill("Lisdexamfetamine", 1));
+        Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
     @Test
     void testGetReminders() {
+        // Arrange
+        MentalHealth mentalHealth = new MentalHealth();
+        mentalHealth.addReminder("Finish CPTs");
+        mentalHealth.addReminder("Study for exams");
 
-    }
-
-    @Test
-    void testResetMedication() {
-
-    }
-
-    @Test
-    void testResetReminders() {
-
-    }
-
-    @Test
-    void testViewPreviousChallenges() {
-
+        // Act
+        ArrayList<String> actual = mentalHealth.getReminders();
+        
+        // Assert
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("Finish CPTs");
+        expected.add("Study for exams");
+        Assertions.assertEquals(expected, actual);
     }
 }

@@ -88,10 +88,10 @@ public class MentalHealth {
     public String findDailyChallenge() {
         String[] challenges = Methods.readFile("assets\\challenges.txt").split("\\.");
         int dayOfYear = getDayOfYear();
-
+        
         return challenges[dayOfYear-1];
     }
-
+        
     public int getDayOfYear() {
         String[] currentDate = Methods.getCurrentDate().split("/");
         int days = 0;
