@@ -14,9 +14,8 @@ import application.medicines.*;
  */
 
 public class NutritionTest {
-
     @Test
-    void testGetAllergies() {
+    void testGetAllergies1() {
         // Arrange
         Nutrition nutrition = new Nutrition("Vegan", "Muslim");
         nutrition.addAllergy("Peanuts");
@@ -29,7 +28,18 @@ public class NutritionTest {
     }
 
     @Test
-    void testGetDiet() {
+    void testGetAllergies2() {
+        // Arrange
+        Nutrition nutrition = new Nutrition("Pescatarian", "Catholic");
+        // Act
+        ArrayList<String> actual = nutrition.getAllergies();
+        // Assert
+        ArrayList<String> expected = new ArrayList<String>();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGetDiet1() {
         // Arrange
         Nutrition nutrition = new Nutrition("Vegan", "Muslim");
         // Act
@@ -40,7 +50,18 @@ public class NutritionTest {
     }
 
     @Test
-    void testGetMealPlan() {
+    void testGetDiet2() {
+        // Arrange
+        Nutrition nutrition = new Nutrition("Normal", "Christian");
+        // Act
+        String actual = nutrition.getDiet();
+        // Assert
+        String expected = "Normal";
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGetMealPlan1() {
         // Arrange
         Nutrition nutrition = new Nutrition("Normal", "Christian");
         nutrition.setBreakfast("Pancakes");
@@ -53,6 +74,17 @@ public class NutritionTest {
         expected.setBreakfast("Pancakes");
         expected.setLunch("Bulalo");
         expected.setDinner("Shawarma");
+        Assertions.assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    void testGetMealPlan2() {
+        // Arrange
+        Nutrition nutrition = new Nutrition("Normal", "Christian");
+        // Act
+        MealPlan actual = nutrition.getMealPlan();
+        // Assert
+        MealPlan expected = new MealPlan();
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
@@ -72,7 +104,7 @@ public class NutritionTest {
     }
 
     @Test
-    void testGetReligion() {
+    void testGetReligion1() {
         // Arrange
         Nutrition nutrition = new Nutrition("Vegan", "Muslim");
         // Act
@@ -83,12 +115,23 @@ public class NutritionTest {
     }
 
     @Test
-    void testIsOkayForMe() {
+    void testGetReligion2() {
+        // Arrange
+        Nutrition nutrition = new Nutrition("Normal", "Christian");
+        // Act
+        String actual = nutrition.getReligion();
+        // Assert
+        String expected = "Christian";
+        Assertions.assertEquals(expected, actual);  
+    }
+
+    @Test
+    void testIsOkayForMe1() {
         // Arrange
         Nutrition nutrition = new Nutrition("Vegan", "Muslim");
      
         // Simulate user input (saying no to every question besides the one asking if it contains beef) 
-        String simulatedInput = "y\nn\nn\nn\nn\nn\nn";
+        String simulatedInput = "y\nn\nn\nn\nn\nn";
         InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
         Scanner input = new Scanner(inputStream);
 
@@ -97,6 +140,44 @@ public class NutritionTest {
 
         // Assert
         boolean expected = false;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testIsOkayForMe2() {
+        // Arrange
+        Nutrition nutrition = new Nutrition("Vegan", "Muslim");
+        nutrition.addAllergy("Peanuts");
+     
+        // Simulate user input (saying no to every question besides the one asking if it contains peanuts) 
+        String simulatedInput = "y\nn\nn\nn\nn\nn\nn";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner input = new Scanner(inputStream);
+
+        // Act
+        boolean actual = nutrition.isOkayForMe(input, "Peanuts");
+
+        // Assert
+        boolean expected = false;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testIsOkayForMe3() {
+        // Arrange
+        Nutrition nutrition = new Nutrition("Vegan", "Christian");
+        nutrition.addAllergy("Peanuts");
+     
+        // Simulate user input (saying no to every question) 
+        String simulatedInput = "n\nn\nn\nn\nn\nn\nn";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner input = new Scanner(inputStream);
+
+        // Act
+        boolean actual = nutrition.isOkayForMe(input, "Spinach");
+
+        // Assert
+        boolean expected = true;
         Assertions.assertEquals(expected, actual);
     }
 }
