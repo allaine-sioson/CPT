@@ -1,4 +1,4 @@
-package application;
+package application.main;
 import javax.naming.OperationNotSupportedException;
 
 /**

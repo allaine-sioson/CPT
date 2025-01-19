@@ -1,4 +1,4 @@
-package application;
+package application.main;
 
 import java.util.*;
 
@@ -194,7 +194,7 @@ public class MentalHealth {
      * gets the user's mental health information from the data.json file
      */
     public void getJSONMentalHealth() {
-        String[] medJSON = Methods.getArrayData("data.json", "Mental Health Medication");
+        String[] medJSON = Methods.getArrayData("main\\data.json", "Mental Health Medication");
         for (String med : medJSON) {
             String[] newMed = med.split("\\|");
             int doses = Integer.parseInt(newMed[1].replace("x", "").trim());
@@ -202,7 +202,7 @@ public class MentalHealth {
             this.medication.add(new Medicine(newMed[0].trim(), doses));
         }
 
-        String[] remindersJSON = Methods.getArrayData("data.json","Reminders");
+        String[] remindersJSON = Methods.getArrayData("main\\data.json","Reminders");
         for (String reminder : remindersJSON) {
             this.reminders.add(reminder);
         }

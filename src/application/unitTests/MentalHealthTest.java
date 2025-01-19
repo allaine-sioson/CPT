@@ -2,7 +2,7 @@ package application.unitTests;
 
 import java.util.*;
 import org.junit.jupiter.api.*;
-import application.*;
+import application.main.*;
 import application.medicines.*;
 
 /**

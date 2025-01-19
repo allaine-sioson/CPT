@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import org.junit.jupiter.api.*;
-import application.Medicine;
+import application.main.Medicine;
 import application.medicines.*;
 
 /**

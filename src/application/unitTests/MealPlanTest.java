@@ -1,7 +1,7 @@
 package application.unitTests;
 
 import org.junit.jupiter.api.*;
-import application.*;
+import application.main.*;
 
 /**
  * @author: Allaine

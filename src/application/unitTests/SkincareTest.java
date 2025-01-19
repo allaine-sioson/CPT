@@ -3,7 +3,7 @@ package application.unitTests;
 import org.junit.jupiter.api.*;
 import java.util.*;
 import application.medicines.*;
-import application.*;
+import application.main.*;
 
 /**
  * @author: Allaine

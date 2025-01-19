@@ -1,5 +1,5 @@
 package application.medicines;
-import application.Medicine;
+import application.main.Medicine;
 
 /**
  * @author: Allaine

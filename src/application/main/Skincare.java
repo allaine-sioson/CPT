@@ -1,4 +1,4 @@
-package application;
+package application.main;
 import java.util.*;
 
 /**
@@ -99,7 +99,7 @@ public class Skincare  {
      * gets the user's skincare information from the data.json file
      */
     public void getJSONSkincare() {
-        String[] medJSON = Methods.getArrayData("data.json", "Skincare Medication");
+        String[] medJSON = Methods.getArrayData("main\\data.json", "Skincare Medication");
         for (String med : medJSON) {
             String[] newMed = med.split("\\|");
             int doses = Integer.parseInt(newMed[1].replace("x", "").trim());
@@ -107,12 +107,12 @@ public class Skincare  {
             this.medication.add(new Medicine(newMed[0].trim(), doses));
         }
 
-        String[] concernsJSON = Methods.getArrayData("data.json","Skin Concerns");
+        String[] concernsJSON = Methods.getArrayData("main\\data.json","Skin Concerns");
         for (String concern : concernsJSON) {
             this.concerns.add(concern);
         }
 
-        String[] routineJSON = Methods.getArrayData("data.json", "Skincare Routine");
+        String[] routineJSON = Methods.getArrayData("main\\data.json", "Skincare Routine");
         for (String step : routineJSON) {
             this.routine.add(step);
             routineStep++;

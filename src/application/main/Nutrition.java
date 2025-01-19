@@ -1,4 +1,4 @@
-package application;
+package application.main;
 
 import java.util.*;
 
@@ -288,7 +288,7 @@ public class Nutrition {
      * gets the user's nutritional information from the data.json file
      */
     public void getJSONNutrition() {
-        String[] medJSON = Methods.getArrayData("data.json", "Nutrition Medication");
+        String[] medJSON = Methods.getArrayData("main\\data.json", "Nutrition Medication");
         for (String med : medJSON) {
             String[] newMed = med.split("\\|");
             int doses = Integer.parseInt(newMed[1].replace("x", "").trim());
@@ -296,12 +296,12 @@ public class Nutrition {
             this.medication.add(new Medicine(newMed[0].trim(), doses));
         }
 
-        String[] allergiesJSON = Methods.getArrayData("data.json","Allergies");
+        String[] allergiesJSON = Methods.getArrayData("main\\data.json","Allergies");
         for (String allergy : allergiesJSON) {
             this.allergies.add(allergy);
         }
 
-        String[] mealPlanJSON = Methods.getArrayData("data.json","Meal Plan");
+        String[] mealPlanJSON = Methods.getArrayData("main\\data.json","Meal Plan");
         setBreakfast(mealPlanJSON[0].replace("breakfast: ", ""));
         setLunch(mealPlanJSON[1].replace("lunch: ", ""));
         setDinner(mealPlanJSON[2].replace("dinner: ", ""));

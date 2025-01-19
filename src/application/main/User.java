@@ -1,4 +1,4 @@
-package application;
+package application.main;
 
 import java.util.*;
 import org.json.simple.*;
@@ -360,7 +360,7 @@ public class User {
         user.put("Mental Health Medication", this.mentalHealth.getMedication());
         user.put("Reminders", this.mentalHealth.getReminders());
 
-        Methods.updateData("data.json", this.user);
+        Methods.updateData("main\\data.json", this.user);
     }
 
     /**

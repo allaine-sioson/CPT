@@ -1,6 +1,6 @@
 package application.unitTests;
 import org.junit.jupiter.api.*;
-import application.*;
+import application.main.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

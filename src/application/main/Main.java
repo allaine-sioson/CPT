@@ -1,4 +1,4 @@
-package application;
+package application.main;
 
 import java.util.*;
 
@@ -17,10 +17,10 @@ public class Main {
         User user;
 
         // get data from JSON data file
-        String name = Methods.getStringData("data.json", "Name");
-        String gender = Methods.getStringData("data.json", "Gender");
-        String diet = Methods.getStringData("data.json", "Diet");
-        String religion = Methods.getStringData("data.json", "Religion");
+        String name = Methods.getStringData("main\\data.json", "Name");
+        String gender = Methods.getStringData("main\\data.json", "Gender");
+        String diet = Methods.getStringData("main\\data.json", "Diet");
+        String religion = Methods.getStringData("main\\data.json", "Religion");
 
         // place the data in an array to check if it's empty
         String[] data = {name, gender, diet, religion};

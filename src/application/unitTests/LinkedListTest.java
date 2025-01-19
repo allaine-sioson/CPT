@@ -1,6 +1,6 @@
 package application.unitTests;
 
-import application.*;
+import application.main.*;
 
 import javax.naming.OperationNotSupportedException;
 

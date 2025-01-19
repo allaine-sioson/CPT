@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import application.*;
+import application.main.*;
 
 /**
  * @author: Allaine
@@ -64,7 +64,7 @@ public class MethodsTest {
         user.setDinner("Mushroom Soup");
 
         // Act
-        String[] actual = Methods.getArrayData("data.json", "Meal Plan");
+        String[] actual = Methods.getArrayData("main\\data.json", "Meal Plan");
         // Assert
         String[] expected = {"breakfast: Vegan Pandesal", "lunch: Stir Fried Veggies", "dinner: Mushroom Soup"};
         Assertions.assertArrayEquals(expected, actual);
@@ -80,7 +80,7 @@ public class MethodsTest {
         user.addAllergy("Dairy");
 
         // Act
-        String[] actual = Methods.getArrayData("data.json", "Allergies");
+        String[] actual = Methods.getArrayData("main\\data.json", "Allergies");
         // Assert
         String[] expected = {"Peanuts", "Dairy"};
         Assertions.assertArrayEquals(expected, actual);
@@ -110,7 +110,7 @@ public class MethodsTest {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
-        String actual = Methods.getStringData("data.json", "Name");
+        String actual = Methods.getStringData("main\\data.json", "Name");
         // Assert
         String expected = "Allaine";
         Assertions.assertEquals(expected, actual);
@@ -123,7 +123,7 @@ public class MethodsTest {
         // Arrange
         User user = new User("Allaine","Female","Vegetarian","Catholic");
         // Act
-        String actual = Methods.getStringData("data.json", "Religion");
+        String actual = Methods.getStringData("main\\data.json", "Religion");
         // Assert
         String expected = "Catholic";
         Assertions.assertEquals(expected, actual);

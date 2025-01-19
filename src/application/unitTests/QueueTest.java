@@ -1,6 +1,6 @@
 package application.unitTests;
 
-import application.*;
+import application.main.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

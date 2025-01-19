@@ -5,7 +5,7 @@ import java.util.*;
 
 import org.junit.jupiter.api.*;
 import application.medicines.*;
-import application.*;
+import application.main.*;
 
 /**
  * @author: Allaine
