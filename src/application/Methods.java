@@ -16,7 +16,7 @@ import org.json.simple.parser.*;
 
 public class Methods {
     /**
-     * Get the current date 
+     * get the current date 
      * @return the date today in MM/dd format
      */
     public static String getCurrentDate() {
@@ -31,6 +31,12 @@ public class Methods {
         return formattedDate;  
     }
 
+    /**
+     * get the data in the file with a string datatype
+     * @param fileName the name of the file that the information is in
+     * @param dataNeeded the data needed from the file
+     * @return the data in a string datatype
+     */
     public static String getStringData(String fileName, String dataNeeded) {
         // Parser for JSON files
         JSONParser jsonParser = new JSONParser();
@@ -51,6 +57,12 @@ public class Methods {
       return data;
     }
 
+    /**
+     * get the data in the file with a string array datatype
+     * @param fileName the name of the file that the information is in
+     * @param dataNeeded the data needed from the file
+     * @return the data in a string array datatype
+     */
     public static String[] getArrayData(String fileName, String dataNeeded) {
         // Parser for JSON files
         JSONParser jsonParser = new JSONParser();
@@ -79,10 +91,9 @@ public class Methods {
         return results;
     }
 
-
     /**
-     * Updates the data within the JSON file
-     * @param fileName The name of the file
+     * updates the data within the JSON file
+     * @param fileName the name of the file
      * @param obj the data to update
      */
     public static void updateData(String fileName, JSONObject obj) {
@@ -92,9 +103,9 @@ public class Methods {
     }
 
     /**
-     * Reads the file
+     * reads the file
      * @param fileName The name of the file
-     * @return
+     * @return the data from the file
      */
     public static String readFile(String fileName) {
         String data = "";
@@ -116,7 +127,7 @@ public class Methods {
 
     /**
      * Writes in the file
-     * @param input the data to be written
+     * @param input the data to be written in the file
      * @param fileName name of the file
      */
     public static void writeFile(String input, String fileName) {
@@ -132,9 +143,9 @@ public class Methods {
     }
 
     /**
-     * checks if any of the content in the array is empty
-     * @param data
-     * @return
+     * returns whether or not the content in the array is empty
+     * @param data the data to be checked
+     * @return true if the content in the array is empty, false otherwise
      */
     public static boolean checkForEmpty(String[] data) {
         if (data.length == 0) {

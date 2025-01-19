@@ -14,6 +14,11 @@ public class Nutrition {
     private MealPlan mealPlan;
     private String diet, religion;
 
+    /**
+     * constructor for the nutrition class
+     * @param diet
+     * @param religion
+     */
     public Nutrition(String diet, String religion) {
         this.allergies = new ArrayList<String>();
         this.mealPlan = new MealPlan();
@@ -24,66 +29,129 @@ public class Nutrition {
         getJSONNutrition();
     }
 
+    /**
+     * resets the user's allergies
+     */
     public void resetAllergies() {
         this.allergies.clear();
     }
 
+    /**
+     * resets the user's nutritional medication
+     */
     public void resetMedication() {
         this.medication.clear();
     }
 
+    /**
+     * resets the user's meal plan
+     */
     public void resetMealPlan() {
         this.mealPlan.resetMealPlan();
     }
 
+    /**
+     * adds a new allergy to the list of allergies the user ha
+     * @param allergy the new allergy to be added
+     */
     public void addAllergy(String allergy) {
         this.allergies.add(allergy);
     }
 
+    /**
+     * adds a new medicine to the list of nutritional medication the user has
+     * @param med the new medicine to be added
+     */
     public void addMedication(Medicine med) {
         this.medication.add(med);
     }
 
+    /**
+     * sets the diet of the user
+     * @param diet the new diet of the user
+     */
     public void setDiet(String diet) {
         this.diet = diet;
     }
 
+    /**
+     * sets the religion of the user
+     * @param religion the new diet of the user
+     */
     public void setReligion(String religion) {
         this.religion = religion;
     }
 
+    /**
+     * sets the user's breakfast in their meal plan
+     * @param breakfast the user's new breakfast
+     */
     public void setBreakfast(String breakfast) {
         this.mealPlan.setBreakfast(breakfast);
     }
 
+    /**
+     * sets the user's lunch in their meal plan
+     * @param lunch the user's new lunch
+     */
     public void setLunch(String lunch) {
         this.mealPlan.setLunch(lunch);
     }
 
+    /**
+     * sets the user's dinner in their meal plan
+     * @param dinner the user's new dinner
+     */
     public void setDinner(String dinner) {
         this.mealPlan.setDinner(dinner);
     }
 
+    /**
+     * gets the user's current diet
+     * @return the user's diet
+     */
     public String getDiet() {
         return this.diet;
     }
 
+    /**
+     * gets the user's current religion
+     * @return the user's religion
+     */
     public String getReligion() {
         return this.religion;
     }
 
+    /**
+     * get the user's list of allergies
+     * @return the user's list of allergies
+     */
     public ArrayList<String> getAllergies() {
         return this.allergies;
     }
 
+    /**
+     * get the user's meal plan
+     * @return the user's meal plan
+     */
     public MealPlan getMealPlan() {
         return this.mealPlan;
     }
 
+    /**
+     * get the user's nutritional medication list
+     * @return the user's nutritional medication list
+     */
     public ArrayList<Medicine> getMedication() {
         return this.medication;
     }
 
+    /**
+     * returns whether or not the food is okay for the user
+     * @param input scanner to allow user input
+     * @param food food to be checked
+     * @return true if food is okay, false if food is not
+     */
     public boolean isOkayForMe(Scanner input, String food) {
         String[] dietData;
         String[] religionData;
@@ -196,6 +264,9 @@ public class Nutrition {
         return result;
     }
 
+    /**
+     * gets the user's nutritional information from the data.json file
+     */
     public void getJSONNutrition() {
         String[] medJSON = Methods.getArrayData("data.json", "Nutrition Medication");
         for (String med : medJSON) {
@@ -215,5 +286,4 @@ public class Nutrition {
         setLunch(mealPlanJSON[1].replace("lunch: ", ""));
         setDinner(mealPlanJSON[2].replace("dinner: ", ""));
     }
-    
 }
