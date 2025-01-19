@@ -16,8 +16,8 @@ public class Medicine {
 
     /**
      * constructor for medicine class
-     * @param name
-     * @param doses
+     * @param name the name of the medicine
+     * @param doses the doses of medicine that the user needs to take
      */
     public Medicine(String name, int doses) {
         this.name = name;

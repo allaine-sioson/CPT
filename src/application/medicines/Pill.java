@@ -8,6 +8,11 @@ import application.Medicine;
  */
 
 public class Pill extends Medicine {
+    /**
+     * constructor for Pill Medicine class
+     * @param name the name of the medicine
+     * @param doses the doses of medicine that the user needs to take
+     */
     public Pill(String name, int doses) {
         super("Pill: " + name, doses);
     }
