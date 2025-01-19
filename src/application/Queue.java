@@ -65,7 +65,7 @@ public class Queue<T> {
     }
 
     /**
-     * Return a string representation of our Linked List
+     * Return a string representation of our queue
      */
     @Override
     public String toString() {
