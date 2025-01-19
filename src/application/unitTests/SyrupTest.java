@@ -23,10 +23,10 @@ public class SyrupTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        Medicine actual = Medicine.newMedicine(input);
+        Medicine actual = Syrup.newMedicine(input);
 
         // Assert
-        Syrup expected = new Syrup("Paracetamol", 3);
+        Medicine expected = new Syrup("Paracetamol", 3);
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
@@ -39,7 +39,7 @@ public class SyrupTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        String actual = Medicine.newMedicine(input).toString();
+        String actual = Syrup.newMedicine(input).toString();
 
         // Assert
         String expected = "\"Syrup: Antihistamine | 2x\"";

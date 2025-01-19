@@ -22,10 +22,10 @@ public class PillTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        Medicine actual = Medicine.newMedicine(input);
+        Medicine actual = Pill.newMedicine(input);
 
         // Assert
-        Pill expected = new Pill("FeraMAX", 1);
+        Medicine expected = new Pill("FeraMAX", 1);
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
@@ -38,7 +38,7 @@ public class PillTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        String actual = Medicine.newMedicine(input).toString();
+        String actual = Pill.newMedicine(input).toString();
 
         // Assert
         String expected = "\"Pill: Tylenol | 2x\"";

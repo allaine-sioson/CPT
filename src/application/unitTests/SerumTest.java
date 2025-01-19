@@ -23,10 +23,10 @@ public class SerumTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        Medicine actual = Medicine.newMedicine(input);
+        Medicine actual = Serum.newMedicine(input);
 
         // Assert
-        Serum expected = new Serum("Salicylic Acid", 2);
+        Medicine expected = new Serum("Salicylic Acid", 2);
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
@@ -39,7 +39,7 @@ public class SerumTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        String actual = Medicine.newMedicine(input).toString();
+        String actual = Serum.newMedicine(input).toString();
 
         // Assert
         String expected = "\"Serum: Niacinamide | 1x\"";

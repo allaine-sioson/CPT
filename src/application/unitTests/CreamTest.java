@@ -23,10 +23,10 @@ public class CreamTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        Medicine actual = Medicine.newMedicine(input);
+        Medicine actual = Cream.newMedicine(input);
 
         // Assert
-        Cream expected = new Cream("Hydrocortisone", 2);
+        Medicine expected = new Cream("Hydrocortisone", 2);
         Assertions.assertEquals(expected.toString(), actual.toString());
     }
 
@@ -39,7 +39,7 @@ public class CreamTest {
         Scanner input = new Scanner(inputStream);
 
         // Act
-        String actual = Medicine.newMedicine(input).toString();
+        String actual = Cream.newMedicine(input).toString();
 
         // Assert
         String expected = "\"Cream: Bioderm | 3x\"";
