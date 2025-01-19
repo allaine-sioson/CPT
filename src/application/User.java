@@ -1,8 +1,8 @@
 package application;
 
 /**
- * author: Allaine
- * date: 15/01/2025
+ * @author: Allaine
+ * @date: 18/01/2025
  * User datatype
  */
 

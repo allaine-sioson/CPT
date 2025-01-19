@@ -2,7 +2,7 @@ package application;
 
 /**
  * @author: Allaine
- * date: 18/01/2025
+ * @date: 18/01/2025
  * Methods file with methods that are to be used in other files
  */
 
